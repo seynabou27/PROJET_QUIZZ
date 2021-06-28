@@ -1,0 +1,109 @@
+[
+    {
+        "login": "admin@gmail.com",
+        "password": "admin@1",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "login": "joueur@gmail.com",
+        "password": "joueur@1",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "seynabou",
+        "nom": "kane",
+        "login": "seynabouka34@gmail.com",
+        "password": "seynabou",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "diagne",
+        "nom": "kane",
+        "login": "diagne@gmail.com",
+        "password": "diagnekane",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "seynabou",
+        "nom": "fall",
+        "login": "fall@gmail.com",
+        "password": "seynabou",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "birane",
+        "nom": "ka",
+        "login": "biraneka23@hotmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "seynabou",
+        "nom": "ly",
+        "login": "seynabouly@gmail.com",
+        "password": "seynabou",
+        "upload": "Envoyer",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "diagne",
+        "nom": "fall",
+        "login": "fall@gmail.com",
+        "password": "seynabou",
+        "upload": "Envoyer",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "seynabou",
+        "nom": "ly",
+        "login": "seynabouka34@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "diagne",
+        "nom": "ka",
+        "login": "seynabouka34@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "ka",
+        "nom": "seynabou",
+        "login": "seynabouka99@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "Prenom": "fall",
+        "nom": "bamba",
+        "login": "bamba@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "ba",
+        "nom": "seynabou",
+        "login": "seynabouba@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    }
+]

@@ -58,23 +58,27 @@ function verif_taille(string $valeur, int $min=6 , int $max=10):bool{
       
     }
 
-    function validation_prenom(string $valeur , string $key,array &$arrayErreur){
+    function validation_Prenom(string $valeur , string $key,array &$arrayErreur){
         if(est_vide($valeur)) {
             $arrayErreur[$key]= 'le champs est obligatoire'; 
         }
     }
 
-    function validation_noms(string $valeur , string $key,array &$arrayErreur){
+    function validation_nom(string $valeur , string $key,array &$arrayErreur){
         if(est_vide($valeur)) {
             $arrayErreur[$key]= 'le champs est obligatoire'; 
         }
     }
 
-    function validation_dat(string $valeur , string $key,array &$arrayErreur){
+    /*function validation_dat(string $valeur , string $key,array &$arrayErreur){
         if(est_vide($valeur)) {
             $arrayErreur[$key]= 'le champs est obligatoire'; 
         }
-    }
+    }*/
+
+
+   
+
 
 
     

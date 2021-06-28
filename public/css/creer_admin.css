@@ -1,0 +1,53 @@
+nav{
+    background-color: black;
+    
+}
+button:after{
+    color: white;
+
+    
+
+}
+.justify-content-center{
+    margin-left: 25%;
+}
+.btn:hover{
+    color: white;
+}
+link{
+    color: white;
+}
+
+a:hover{
+    color: white;
+    background-color: #212121;
+    border-bottom: 5px solid white;
+    
+    
+    
+}
+ul li a {
+    text-decoration:none;
+    color: #7a7a7a;
+    
+}
+
+ul{
+    margin-left: 28%;
+    color: white;
+    
+}
+
+
+img{
+    width: 45px;
+}
+h3{
+    font-size: 16px;
+    margin-top: 2.5%;
+    color: white;
+
+}
+.image{
+    margin-left: 14%;
+}

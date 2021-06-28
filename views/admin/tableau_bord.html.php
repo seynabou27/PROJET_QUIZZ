@@ -7,12 +7,10 @@
     <meta name="viewsport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="<?=WEB_ROUTE.'css/liste_question.css'?>">
   </head>
   <body>
 
@@ -81,90 +79,90 @@
     
     
             </div>
-        </nav>
-        <div class="boutton">
-        <a class="btn btn-registre" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button"><i class="bi bi-plus-lg"></i>Créer question</a>
-        </div>
-        <h2><b>Liste des questions</b></h2>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6 left">
-                    <div class="question1">
-                        <p><b> 1. Les langages web. </b></p>
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="optcheckbox" value="">HTML</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="optcheckbox" value="">S</label>
-                        </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="optcheckbox" value="">JAVA</label>
-                        </div>
-                    </div>
-                    <div class="question3">
-                        <p><b> 3. Quel terme définit le langage qui<br/> s'adapte sur Android et sur Ios?</b></p>
-                        <input type="text" class="input">  
-                       
-                    </div>
-                    <div class="question5">
-                        <p><b> 5. Les précurseurs de la révolution digitale.</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                                GAFAM 
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                CIA-FBI
-                            </label>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-md-6 right">
-                    <div class="question2">
-                        <p><b> 2. Le corona vient d'ou?</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="example1" id="exampleRadios1" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                                Chine
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="example1" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                    Kirikoro
-                            </label>
-                        </div>
-                    </div>  
-                    <div class="question4">
-                        <p><b> 4. Quel est le premier ecole de codage au sénégal?</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="example4" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                            Orange Digitale Center
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="exampleRadios" id="example4" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                            senecartour
-                            </label>
-                        </div>
-                    </div>
                 
-                    
-                </div>
-            
-            </div>
-            
-            
-        </div>
+           
+        </nav>
 
-        
+        <style>
             
+            nav{
+                background-color: black;
+            
+            }
+            .navbar-toggler-icon{
+                background-color: white;
+                border-radius: 3px;
+            }
+            button:after{
+                color: white;
+
+            
+
+            }
+            link{
+                color: white;
+            }
+       
+            a:hover{
+                color: white;
+                background-color: #212121;
+                border-bottom: 5px solid white;
+            
+            }
+            ul li a {
+                text-decoration:none;
+                color: #7a7a7a;
+            
+            }
+            .justify-content-center{
+                margin-left: 25%;
+            }
+            .btn:hover{
+                color: white;
+            }
+        
+            ul{
+                margin-left: 28%;
+                color: white;
+            
+            }
+        
+        
+            img{
+                width: 45px;
+            }
+            h3{
+                font-size: 16px;
+                margin-top: 2.5%;
+                color: white;
+
+            }
+            h2{
+                font-size: 20px;
+                margin: 6%;
+            }
+            .image{
+                margin-left: 14%;
+            }
+            .btn-n{
+                float: right;
+                margin: 2%;
+                background-color:#FE1B00;
+                color: white;
+            }
+            .btn-enregistrer{
+                background-color:#FE1B00;
+
+            }
+            .texte{
+                font-size: 25px;
+                text-align: center;
+            
+            }
+            
+            
+    
+        </style>
               
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

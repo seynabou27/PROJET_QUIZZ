@@ -1,3 +1,16 @@
+<?php 
+if (isset($_SESSION['arrayErreur'])){
+    $arrayErreur =$_SESSION['arrayErreur'];
+    unset ($_SESSION['arrayErreur']);
+}
+
+ require_once(ROUTE_DIR.'views/inc/header.inc.html.php');
+?>
+
+
+
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,6 +20,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?=WEB_ROUTE.'css/connexion.css'?>">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />-->
 
@@ -25,27 +39,31 @@
 
                <img src="<?=$base64?>" alt="tes">
 
-      <h3> <b> Le plaisir de jouer </b></h3>
-      
+              <h3> <b> Le plaisir de jouer </b></h3>
+              
       
       
     </div>
     <div class="col-md-6 right">
     <div class="form-container sign-in-container texte-center">
-    <form method="POST" enctype="multipart/form-data" action="#"style="margin-top: 5%;">
+
+    <form method="POST" enctype="multipart/form-data" action="<?=WEB_ROUTE?>"style="margin-top: 5%;">
+                    <input type="hidden" name="controlleurs" value="security"/>
+                    <input type="hidden" name="action" value="connexion"/>
+                               
         <h1 class="texte">Connexion</h1>
         <div class="form-group">
             <label for="exampleInputEmail1"></label>
             <input type="texte" name="login" class="form-control  w-75 p-3" style="background-color: #eee;" id="exampleInputEmail1"  placeholder="Nom d'utilisateur / Email">
-            <small id="emailHelp" class="form-text text-danger"></small>
+            <small id="emailHelp" class="form-text text-danger"><?php echo isset($arrayErreur['login'])? $arrayErreur['login']:'';?></small></small>
          </div>
          <div class="form-group">
-            <label for="exampleInputPassword1"></label>
-            <input type="password" name="password" class="form-control  w-75 p-3"  style="background-color: #eee;" id="exampleInputPassword1" placeholder="Mot de passe">
-            <small id="passwordlHelp" class="form-text text-danger"></small>
+            <label for="exampleInputPassword"></label>
+            <input type="password" name="password" class="form-control  w-75 p-3"  style="background-color: #eee;" id="exampleInputPassword" placeholder="Mot de passe">
+            <small id="passwordlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['password'])? $arrayErreur['password']:'';?></small>
           </div>
               <div class="form-groupe">
-              <button type="button" name="btn-submit" class="btn  w-75 p-2">Je me connecte</button>
+              <button type="submit" class="btn boutton w-75 p-2" name="btn_submit" style="background-color: #FE1B00;">Je me connecte</button>
               </div>
               <p class="texte"> Vous n'avez pas encore de compte?</p>
               <a  class="lien" href="<?=WEB_ROUTE.'?controlleurs=security&views=inscription'?>">Je m'inscris</a>
@@ -58,91 +76,10 @@
     </div>
     </div>
 
-<style>
-body {
-    height:100%;
-  
-}
-.form{
-  margin-bottom: 8%;
-  
-}
-.container {
-    min-height: 100%;
-    height: 100%;
-    
-}
-img {
-    margin-left:40%;
-    margin-top:28%;
-    margin-bottom: 5%;
-
-
-}
-
- 
-.left {
-background-color: black;
-height: 600px;
-
-}
- .mx-auto{
-   color: white;
-
- }
- 
-.right {
-background-color: white;
-height: 600px;
-
-}
-.btn{
-  background-color: #FE1B00;
-  margin-left: 1%;
-  
-  
-
-}
-
-
-.lien{
-  color: #FE1B00;
-  margin-left: 27%;
-  
-  
-}
-h1{
-text-align: center;
-color: #000;
-margin-bottom: 7%;
-}
-h3{
-    text-align: center;
-    margin-top: 3%;
-    font-size: 30px;
-}
-a:hover{
-    color: #FE1B00;
-}
-ul li a {
-    text-decoration: none;
-    
-}
-.texte{
-  color: black;
-  text-align: center;
-  padding: 5%;
-  margin-right: 21%;
-  margin-top: 9%;
-  
-}
-form{
-  margin-left: 15%;
-}
 
 
 
-</style>
+
 
 
     <!-- Optional JavaScript -->
@@ -152,10 +89,5 @@ form{
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </body>
 </html>
-<!--
-<style>
-  .image {
-    background-image:url(//ROUTE_DIR."public/img/phone.jpg");
-  }
-  </style>-->
+
 

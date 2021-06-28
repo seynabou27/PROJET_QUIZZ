@@ -1,0 +1,102 @@
+body {
+    height:100%;
+    
+}
+.navbar-toggler-icon{
+  background-color: white;
+  border-radius: 3px;
+}
+.container {
+    min-height: 100%;
+    height: 100%;
+    
+}
+img {
+    margin-left:38%;
+    margin-top:35%;
+
+
+}
+
+
+h1{
+text-align: center;
+color: #000;
+margin-bottom: 12%;
+}
+h3{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 30px;
+}
+ 
+.left {
+background-color: black;
+height: 630px;
+
+
+
+}
+.hide-upload{
+  margin-top: -1%;
+}
+ .mx-auto{
+   color: white;
+
+
+ }
+ 
+.right {
+background-color: white;
+height: 625px;
+
+
+
+}
+button:after{
+    color: #FE1B00;
+
+}
+a:hover{
+    color: #FE1B00;
+}
+ul li a {
+    text-decoration: none;
+}
+.btn{
+  background-color: #FE1B00;
+}
+
+ 
+  
+.lien{
+  color: #FE1B00;
+  margin-left: 42% ;
+  
+}
+
+.image{
+  margin-top: -6%;
+}
+.texte{
+  color: black;
+  text-align: center;
+  padding: 1%;
+  
+}
+i {
+  background-color: white;
+  border-radius: 50%;
+  border: 1x solid grey;
+  padding: 10px;
+}
+.photo{
+  
+  border-radius: 9px;
+  width: 40%;
+}
+
+
+
+  
+  

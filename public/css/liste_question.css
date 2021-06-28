@@ -1,0 +1,152 @@
+
+            .navbar-toggler-icon{
+                background-color: white;
+                border-radius: 3px;
+            }
+            
+            nav{
+                background-color: black;
+            
+            }
+            button:after{
+                color: white;
+
+            
+
+            }
+            .justify-content-center{
+                margin-left: 25%;
+            }
+            .btn:hover{
+                color: white;
+            }
+            
+       
+            a:hover{
+                color: white;
+                
+                border-bottom: 5px solid white;
+            
+            }
+            ul li a {
+                text-decoration:none;
+                color: #7a7a7a;
+            
+            }
+        
+            ul{
+                margin-left: 28%;
+                color: white;
+            
+            }
+        
+        
+            img{
+                width: 45px;
+            }
+            h3{
+                font-size: 16px;
+                margin-top: 2.5%;
+                color: white;
+
+            }
+            h2{
+                font-size: 20px;
+                margin: 5%;
+                margin-left: 10%;
+            }
+            .image{
+                margin-left: 14%;
+            }
+            .btn-n{
+                float: right;
+                margin: 2%;
+                background-color:#FE1B00;
+                color: white;
+            }
+            .btn-enregistrer{
+                background-color:#FE1B00;
+
+            }
+            .texte{
+                font-size: 25px;
+                text-align: center;
+            
+            }
+            .btn-registre{
+                float: right;
+                margin: 2%;
+                background-color:#FE1B00;
+                color: white;
+
+            }
+            
+            .left{
+                padding-left: 3%;
+            }
+            .right{
+                padding-left: 3%;
+            }
+            .question1{
+                border: 1.5px solid #FE1B00;
+                padding: 2%;
+                width: 360px;
+                height: 145px;
+                padding-left: 5%;
+                border-radius: 20px;
+                margin-left: 7%;
+
+            }
+            .question2{
+                border: 1.5px solid #FE1B00;
+                padding: 2%;
+                width: 370px;
+                height: 136px;
+                padding-left: 5%;
+                border-radius: 20px;
+                margin-left: 8%;
+
+
+            }
+            .question3{
+                margin: 5%;
+                border: 1.5px solid #FE1B00;
+                width: 370px;
+                padding: 2%;
+                padding-left: 5%;
+                border-radius: 20px;
+                margin-left: 7%;
+                height: 136px;
+
+            }
+            .input{
+                border-radius: 20px;
+                background-color: gainsboro;
+                border: 1.5px solid gainsboro;
+                width: 90%;
+                height: 36%;
+
+            }
+            .question4{
+                border: 1.5px solid #FE1B00;
+                padding: 2%;
+                margin: 5%;
+                width: 370px;
+                height: 136px;
+                padding-left: 5%;
+                border-radius: 20px;
+                margin-left: 8%;
+
+
+            }
+            .question5{
+                margin: 5%;
+                border: 1.5px solid #FE1B00;
+                width: 370px;
+                padding: 2%;
+                padding-left: 5%;
+                border-radius: 20px;
+                margin-left: 7%;
+                height: 136px;
+
+            }

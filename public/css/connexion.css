@@ -1,0 +1,84 @@
+body {
+    height:100%;
+  
+}
+.navbar-toggler-icon{
+    background-color: white;
+    border-radius: 3px;
+}
+.form{
+  margin-bottom: 8%;
+  
+}
+.container {
+    min-height: 100%;
+    height: 100%;
+    
+}
+img {
+    margin-left:40%;
+    margin-top:28%;
+    margin-bottom: 5%;
+
+
+}
+
+.left {
+background-color: black;
+height: 600px;
+
+}
+ .mx-auto{
+   color: white;
+
+ }
+ 
+.right {
+background-color: white;
+height: 600px;
+
+}
+.boutton{
+  background-color: #FE1B00;
+  
+  
+  
+
+}
+
+
+.lien{
+  color: #FE1B00;
+  margin-left: 27%;
+  
+  
+}
+h1{
+text-align: center;
+color: #000;
+margin-bottom: 7%;
+}
+h3{
+    text-align: center;
+    margin-top: 3%;
+    font-size: 30px;
+}
+a:hover{
+    color: #FE1B00;
+}
+ul li a {
+    text-decoration: none;
+    
+}
+.texte{
+  color: black;
+  text-align: center;
+  padding: 5%;
+  margin-right: 21%;
+  margin-top: 9%;
+  
+}
+form{
+  margin-left: 15%;
+}
+
