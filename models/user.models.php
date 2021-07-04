@@ -80,12 +80,14 @@ function find_user_by_id(string $id): array {
 }
 function supprimer(string  $id):bool{
     $arrayuser = find_all_users();
-    $user = array();
+    $trouve= false;
     foreach ($arrayuser as $user) {
-        if ($user['id']==$id) {
-            return  $user;
+        if ($user['id']!=$id) {
+             $trouve=true;
+        }else {
+
         }
-        return [];
+    
     }
     
     return true;
