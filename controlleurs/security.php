@@ -11,12 +11,15 @@
                     require_once(ROUTE_DIR.'views/security/connexion.html.php');
                 }elseif($_GET['views']=='supprimer'){
                     //suppression_user();
-                    require_once(ROUTE_DIR. 'view/security.confirmation.supression.html.php');
+                    require_once(ROUTE_DIR. 'view/security/supression.html.php');
 
                 }elseif($_GET['views']=='edit'){
                     $id =$_GET['id'];
+                    
+                    //$id =$_SESSION['id'];
                     $user = find_user_by_id($id);
-                    require_once(ROUTE_DIR. 'views/security/inscription.html.php');
+                    //inscription($_POST);
+                    require_once(ROUTE_DIR. 'views/admin/creer_admin.html.php');
                 }
             }else{
               require_once(ROUTE_DIR.'views/security/connexion.html.php');
@@ -31,8 +34,12 @@
                     unset($_POST['controller']);
                     unset($_POST['action']);
                     //unset($password['controller']);
-                    inscription($_POST, $_FILES);
+                    inscription($_POST);
+                    header('location:'.WEB_ROUTE.'?controlleurs=admin&views=connexion');
 
+                }elseif ($_POST['action']== 'edit'){
+                    inscription($_POST);
+                    header('location:'.WEB_ROUTE.'?controlleurs=admin&views=liste_admin');
                 }
 
             }
@@ -93,19 +100,39 @@ function inscription(array $data):void{
             
         if(form_valid($arrayErreur)){
             unset ($data['password1']); 
-            $data ['role'] = est_admin()? "ROLE_ADMIN" : "ROLE_JOUEUR" ;
-            add_user($data);
-            if (est_admin()){
-                $data['role'] = "ROLE_ADMIN";
+            $data ['role'] = est_admin()? "ROLE_ADMIN": "ROLE_JOUEUR"  ;
+            if (isset($data['id'])){
+
+                if (est_admin()) {
+                    modif_user($data);
+                    header("location:" .WEB_ROUTE.'?controlleurs=admin&views=liste_admin');
+    
+                }
             }else{
-                $data['role'] = "ROLE_JOUEUR";
-            }
+                add_user($data);
+           
              header("location:" .WEB_ROUTE.'?controlleurs=security&views=connexion');
+            }
+    
+           
+        
+            
+
+            
+            
 
             }else{
-                $_SESSION['arrayErreur'] = $arrayErreur;
-                     header("location:" .WEB_ROUTE.'?controlleurs=security&views=inscription');
-            }
+                if (est_admin()) {
+                    $_SESSION['arrayErreur'] = $arrayErreur;
+                    header("location:" .WEB_ROUTE.'?controlleurs=admin&views=creer_admin');
+                
+      
+                }else{
+                    $_SESSION['arrayErreur'] = $arrayErreur;
+                    header("location:" .WEB_ROUTE.'?controlleurs=security&views=inscription');
+                }
+                }
+                
             
             
 }

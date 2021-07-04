@@ -34,7 +34,7 @@
                             <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=jeu'?>">Joueurs</a>
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                         </li>
                     <?php endif ?>
 

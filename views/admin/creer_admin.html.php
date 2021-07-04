@@ -4,11 +4,11 @@
      $arrayErreur =$_SESSION['arrayErreur'];
      unset ($_SESSION['arrayErreur']);
  }
-  require_once(ROUTE_DIR.'views/inc/header.inc.html.php');
- if (est_admin()){
-     require_once(ROUTE_DIR.'views/inc/menu.html.php');
-  }
- require_once(ROUTE_DIR.'views/inc/header.inc.html.php');
+  //require_once(ROUTE_DIR.'views/inc/header.inc.html.php');
+ //if (est_admin()){
+     //require_once(ROUTE_DIR.'views/inc/menu.html.php');
+  //}
+ //require_once(ROUTE_DIR.'views/inc/header.inc.html.php');
 ?>
 
 <!doctype html>
@@ -62,7 +62,7 @@
                             <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=jeu'?>">Joueurs</a>
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                         </li>
                     <?php endif ?>
 
@@ -74,6 +74,9 @@
                 <?php if (est_joueur()) : ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">jeu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                     </li>
                 <?php endif ?>
                 <img class="image" src="<?=WEB_ROUTE."img/avatar.png"?>" alt="avatar">
@@ -97,39 +100,39 @@
         </nav>
 
         
-              <div class="form-container sign-in-container texte-center">
+              <div class="container-fluid">
 
               <form method="post" action="<?=WEB_ROUTE?>"  enctype="multipart/form-data"  style="margin-top: 5%;">
                      <input type="hidden" name="controlleurs" value="security"/>
-                     <input type="hidden" name="action" value="inscription"/>
+                     <input type="hidden" name="action" value="<?=isset($user['id']) ? 'edit':'inscription';?>"/>
                      <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>">
                                 
-                     <h1 class="texte">Inscription</h1>
+                     <h1 class="texte">Créer Administrateur</h1>
  
                <div class="row mb-3">
                      <div class="col">
-                       <input type="text"  name="Prenom" class="form-control" style="background-color: #eee;" placeholder="Prénom">
+                       <input type="text"  name="Prenom" class="form-control" style="background-color: #eee;" placeholder="Prénom" value="<?=isset($user['Prenom']) ? $user['Prenom']:'';?>" >
                        <small class="form-text text-danger"><?php echo isset($arrayErreur['Prenom'])? $arrayErreur['Prenom']:'';?></small>
                      </div>
                      <div class="col">
-                       <input type="text" name="nom" class="form-control"style="background-color: #eee;" placeholder="Nom">
+                       <input type="text" name="nom" class="form-control"style="background-color: #eee;" value="<?=isset($user['nom']) ? $user['nom']:'';?>" placeholder="Nom">
                        <small class="form-text text-danger"><?php echo isset($arrayErreur['nom'])? $arrayErreur['nom']:'';?></small>
                      </div>
                </div>
                 <div class="form-group">
                          <label for="exampleInputEmail1"></label>
-                         <input type="texte" name="login" class="form-control" style="background-color: #eee;" aria-describedby="emailHelp" placeholder="Nom d'utilisateur / Email">
+                         <input type="texte" name="login" class="form-control" style="background-color: #eee;" aria-describedby="emailHelp" value="<?=isset($user['login']) ? $user['login']:'';?>"  placeholder="Nom d'utilisateur / Email">
                          <small id="emailHelp" class="form-text text-danger"><?php echo isset($arrayErreur['login'])? $arrayErreur['login']:'';?></small>
                   </div>
                  <div class="row mb-3">
                  <div class="col">
                      <label for="exampleInputPassword"></label>
-                     <input type="password" name="password" class="form-control"  style="background-color: #eee;" placeholder="Mot de passe">
+                     <input type="password" name="password" class="form-control"  style="background-color: #eee;"value="<?=isset($user['password']) ? $user['password']:'';?>" placeholder="Mot de passe">
                      <small id="passwordlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['password'])? $arrayErreur['password']:'';?></small>
                  </div>
                  <div class="col">
                      <label for="exampleInputPassword1"></label>
-                     <input type="password" name="password1" class="form-control"  style="background-color: #eee;" placeholder="Confirmer mot de passe">
+                     <input type="password" name="password1" class="form-control"  style="background-color: #eee;" value="<?=isset($user['password1']) ? $user['password1']:'';?>" placeholder="Confirmer mot de passe">
                      <small id="passwordlHelp" class="form-text text-danger">
                          <?php echo isset($arrayErreur['password'])? $arrayErreur['password']:'';?>
                          <?php echo isset($arrayErreur['password1'])? $arrayErreur['password1']:'';?></small> 
@@ -142,10 +145,9 @@
                   <small id="" class="form-text text-danger"></small>                         
                   <label style="color:black;" for="file">Fichier</label>
                   <input type="file" name="file">
-                  <button type="submit" class="btn w-100 p-2" name="btn_submit" style="background-color: #FE1B00;">Je m'inscris</button>
+                  <button type="submit" class="btn w-75 p-2" name="btn_submit" style="background-color: #FE1B00; color:white;">Je m'inscris</button>
                           
                 </div>
-                <a class="lien" href="<?=WEB_ROUTE.'?controlleurs=security&views=connexion'?>">Je me connecte</a>
                      
              </form>
           </div>

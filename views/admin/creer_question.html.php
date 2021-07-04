@@ -49,7 +49,7 @@
                             <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=jeu'?>">Joueurs</a>
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                         </li>
                     <?php endif ?>
 
@@ -132,8 +132,8 @@
                         <i class="bi bi-plus-square-fill"></i>
                     </div>
                     <div class="aligne">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" name="btn-submit" class="btn btn-enregistrer">Enregistrer</button>
+                        <button type="button" style="color: white;" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                        <button type="button" style="color: white;" name="btn-submit" class="btn btn-enregistrer">Enregistrer</button>
                  
 
                     </div>

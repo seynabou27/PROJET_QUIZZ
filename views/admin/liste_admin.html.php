@@ -2,7 +2,7 @@
     if (isset($_SESSION['arrayErreur'])){
      $arrayErreur =$_SESSION['arrayErreur'];
      unset ($_SESSION['arrayErreur']);
- }
+ } 
  ?>
 
 
@@ -57,7 +57,7 @@
                             <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=jeu'?>">Joueurs</a>
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                         </li>
                     <?php endif ?>
 
@@ -94,10 +94,32 @@
         </nav>
         
         <div class="boutton">
-        <a class="btn btn-registre" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_admin'?>" role="button"><i class="bi bi-plus-lg"></i>Créer question</a>
+        <a class="btn btn-registre" style="color:white;" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_admin'?>" role="button"><i class="bi bi-plus-lg"></i>Création d'un administrateur</a>
         </div>
             <!-- Pop-up -->
-            
+            <?php   
+                $json = file_get_contents(FILE_USERS);
+    
+                // 2 convertir contenu en tableau
+                $arrayuser = json_decode($json, true);
+                //if  (!isset ( $_GET [ 'liste_admin' ]) ) {  
+                    //$listadmin  = 1 ;  
+                //}else {  
+                    //$listadmin  =  $_GET [ 'liste_admin' ];  
+                //}  
+                
+                //$results_par_page  = 5;  
+                //$page_result  = ( $page -1) *  $results_par_page ;  
+
+                //determiner le nombre total par page
+                //$nombre_page  =  ceil  ( $nombre_result  /  $results_par_page );  
+                
+                
+ 
+
+                
+                    
+            ?>
             
             <h2><b> Liste des Administrateurs </b></h2>
             
@@ -106,52 +128,43 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        
                         <th scope="col">Prenom&Nom</th>
                         <th scope="col">Identifiant</th>
-                        <th scope="col">Mot de passe</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Antoine</td>
-                        <td><a name="" id="" class="btn btn-primary" href="#" role="button">modifier</a></td>
+                
+                   <?php foreach ($arrayuser as $user): ?>
+                    <?php if ($user['role']== "ROLE_ADMIN"): ?>
                         
-                    </tr>
+                   
                     <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td> 
+                            <?=  $user["nom"]." ".$user['Prenom'] ?>
+                        </td>
+                        <td>  <?=  $user["login"]." ".$user['role'] ?></td>
+                        <td><a name="" id="" class="btn btn-light" href="<?=WEB_ROUTE.'?controlleurs=security&views=edit&id='.$user['id']?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a></td>
                     </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">5</th>
-                        <td>Larissa</td>
-                        <td>the Bird</td>
-                        <td>larissa@1</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">6</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+                    <?php endif ?>
+                    <?php endforeach ?>
+
+
+                    
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example" class="page">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item">
+                        <a class="page-link" style="color:#767676;" href="#" tabindex="-1">Précedent</a>
+                    </li>
+                    <li class="page-item">
+                    <a class="page-link" style="color:#FE1B00;" href="#">suivant</a>
+                    </li>
+                </ul>
+            </nav>
+                    
         </div>
         
 

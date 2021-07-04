@@ -1,16 +1,32 @@
 [
+    
     {
+        "Prenom": "Coudy",
+        "id": "ba2oprie3",
+        "nom": "Wane",
         "login": "admin@gmail.com",
         "password": "admin@1",
         "role": "ROLE_ADMIN"
     },
     {
+        "Prenom": "galli",
+        "id": "ba2",
+        "nom": "Wane",
+        "login": "admin@gmail.com",
+        "password": "admin@1",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "Prenom": "Zhe",
+        "id": "ba2qmioye3",
+        "nom": "ka",
         "login": "joueur@gmail.com",
         "password": "joueur@1",
         "role": "ROLE_JOUEUR"
     },
     {
         "controlleurs": "security",
+        "id": "ba2mqhlfkd3",
         "Prenom": "seynabou",
         "nom": "kane",
         "login": "seynabouka34@gmail.com",
@@ -19,6 +35,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba2pheoigf3",
         "Prenom": "diagne",
         "nom": "kane",
         "login": "diagne@gmail.com",
@@ -27,6 +44,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba23lfqqoppr",
         "Prenom": "seynabou",
         "nom": "fall",
         "login": "fall@gmail.com",
@@ -35,6 +53,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba2rjoilt3",
         "Prenom": "birane",
         "nom": "ka",
         "login": "biraneka23@hotmail.com",
@@ -44,6 +63,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba233333333333",
         "Prenom": "seynabou",
         "nom": "ly",
         "login": "seynabouly@gmail.com",
@@ -53,6 +73,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "bazreqtr23",
         "Prenom": "diagne",
         "nom": "fall",
         "login": "fall@gmail.com",
@@ -62,6 +83,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba2lsdkgljdm3",
         "Prenom": "seynabou",
         "nom": "ly",
         "login": "seynabouka34@gmail.com",
@@ -71,6 +93,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "bojgidjokl3",
         "Prenom": "diagne",
         "nom": "ka",
         "login": "seynabouka34@gmail.com",
@@ -80,6 +103,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "badd23",
         "Prenom": "ka",
         "nom": "seynabou",
         "login": "seynabouka99@gmail.com",
@@ -89,6 +113,7 @@
     },
     {
         "controlleurs": "security",
+        "id": "ba223",
         "Prenom": "fall",
         "nom": "bamba",
         "login": "bamba@gmail.com",
@@ -98,12 +123,123 @@
     },
     {
         "controlleurs": "security",
-        "id": "",
+        "id": "ba23",
         "Prenom": "ba",
         "nom": "seynabou",
         "login": "seynabouba@gmail.com",
         "password": "seynabou",
         "btn_submit": "",
         "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "ayg12",
+        "Prenom": "libasse",
+        "nom": "mbaye",
+        "login": "libasse@gmail.com",
+        "password": "layelaye",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "abt23",
+        "Prenom": "abdou",
+        "nom": "ndiaye",
+        "login": "abdou@gmail.fr",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "BBY23",
+        "Prenom": "bintou",
+        "nom": "gadiaga",
+        "login": "gadiaga@hotmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "maguette",
+        "nom": "ndiaye",
+        "login": "maguette@yahoo.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "maguette",
+        "nom": "ndiaye",
+        "login": "maguette@yahoo.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "maman",
+        "nom": "ndiaye",
+        "login": "maman@gmail.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "adja maguette",
+        "nom": "ndiaye",
+        "login": "adjamaguette20@hotmail.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": true
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "khadija",
+        "nom": "wade",
+        "login": "wade@gmail.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "khadija",
+        "nom": "wade",
+        "login": "wade@gmail.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "",
+        "Prenom": "khadim",
+        "nom": "fall",
+        "login": "khadim@gmail.com",
+        "password": "maguette",
+        "btn_submit": "",
+        "role": "ROLE_JOUEUR"
+    },
+    {
+        "controlleurs": "security",
+        "id": "abt23",
+        "Prenom": "abdou",
+        "nom": "ndiaye",
+        "login": "abdou@gmail.fr",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
     }
+    
 ]

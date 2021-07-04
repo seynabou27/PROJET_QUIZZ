@@ -47,7 +47,7 @@
                             <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=jeu'?>">Joueurs</a>
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
                         </li>
                     <?php endif ?>
 
@@ -114,6 +114,10 @@
                 color: #7a7a7a;
             
             }
+            .btn{
+                color: #767676;
+            }
+            
             .justify-content-center{
                 margin-left: 25%;
             }

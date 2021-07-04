@@ -7,6 +7,8 @@ if (!est_joueur()) header("location:".WEB_ROUTE.'?controlleurs=security&views=co
             if ($_GET['views'] == 'jeu') {
             
                 require(ROUTE_DIR.'views/joueur/jeu.html.php');
+            }elseif($_GET['views'] == 'liste_joueur') {
+                require(ROUTE_DIR.'views/admin/liste_joueur.html.php');
             }
            
         }else {

@@ -33,6 +33,19 @@ function find_all_users(){
     // 2 convertir le json en tableau
     return json_decode($json ,true);
 }
+function find_all_admin(){
+   $arrayuser =find_all_users();
+    foreach ($arrayuser as $user){
+        if ($user['role']="ROLE_ADMIN"){
+            $useradmin[] =$user;
+            
+        }
+       
+    }
+    return $useradmin;
+
+    
+}
 function login_exist(string $login ,$arrayuser):bool{
     $arrayuser = find_all_users();
     foreach ($arrayuser as $user) {
@@ -65,9 +78,16 @@ function find_user_by_id(string $id): array {
         return [];
     }
 }
-function supprimer(string $id):bool{
+function supprimer(string  $id):bool{
     $arrayuser = find_all_users();
     $user = array();
+    foreach ($arrayuser as $user) {
+        if ($user['id']==$id) {
+            return  $user;
+        }
+        return [];
+    }
+    
     return true;
 }
 

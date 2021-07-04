@@ -8,6 +8,10 @@ button:after{
     
 
 }
+.btn{
+    color: #767676;
+}
+
 .justify-content-center{
     margin-left: 25%;
 }
@@ -42,6 +46,11 @@ ul{
 img{
     width: 45px;
 }
+
+.texte{
+    text-align: center;
+    padding: 4%;
+}
 h3{
     font-size: 16px;
     margin-top: 2.5%;
@@ -50,4 +59,23 @@ h3{
 }
 .image{
     margin-left: 14%;
+}
+.container-fluid{
+    
+    width: 90%;
+   
+    border: 2px solid rgb(0, 0, 0);
+    margin: 3%;
+    margin-left: 6%;
+}
+.photo{
+    padding: 1%;
+    margin: 2%;
+    width: 20%;
+    border-radius: 2px;
+}
+.btn{
+    margin: 5%;
+    margin-left: 13%;
+    
 }
