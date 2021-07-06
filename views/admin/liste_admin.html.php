@@ -102,23 +102,33 @@
     
                 // 2 convertir contenu en tableau
                 $arrayuser = json_decode($json, true);
-                //if  (!isset ( $_GET [ 'liste_admin' ]) ) {  
-                    //$listadmin  = 1 ;  
-                //}else {  
-                    //$listadmin  =  $_GET [ 'liste_admin' ];  
-                //}  
-                
-                //$results_par_page  = 5;  
-                //$page_result  = ( $page -1) *  $results_par_page ;  
 
-                //determiner le nombre total par page
-                //$nombre_page  =  ceil  ( $nombre_result  /  $results_par_page );  
-                
-                
- 
-
-                
-                    
+                $liste_user =[];
+                $nombre_page=0;
+                $page=1;
+                $suivant=2;
+                $joueur_user=[];
+                foreach($arrayuser as $user){
+                    if ($user['role'] == 'ROLE_ADMIN'){
+                        $joueur_user[]=$user;
+                    }
+                }
+                if(!isset($_GET['page'])){
+                    $page=1;
+                    $_SESSION['joueur_user'] = $joueur_user;
+                    $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
+                    $liste_user= get_element_to_display($_SESSION['joueur_user'],$page,10);
+                }
+                if (isset($_GET['page'])){
+                    $page=$_GET['page'];
+                    $suivant=$page+1;
+                    $precedent=$page-1;
+                    if (isset($_SESSION['joueur_user'])) {
+                        $_SESSION['joueur_user'] = $joueur_user;
+                        $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
+                        $liste_user = get_element_to_display($_SESSION['joueur_user'],$page,10);
+                    }
+                }
             ?>
             
             <h2><b> Liste des Administrateurs </b></h2>
@@ -136,7 +146,7 @@
                 </thead>
                 <tbody>
                 
-                   <?php foreach ($arrayuser as $user): ?>
+                   <?php foreach ($liste_user as $user): ?>
                     <?php if ($user['role']== "ROLE_ADMIN"): ?>
                         
                    
@@ -144,7 +154,7 @@
                         <td> 
                             <?=  $user["nom"]." ".$user['Prenom'] ?>
                         </td>
-                        <td>  <?=  $user["login"]." ".$user['role'] ?></td>
+                        <td>  <?=  $user["login"] ?></td>
                         <td><a name="" id="" class="btn btn-light" href="<?=WEB_ROUTE.'?controlleurs=security&views=edit&id='.$user['id']?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a></td>
                     </tr>
                     <?php endif ?>
@@ -154,16 +164,16 @@
                     
                 </tbody>
             </table>
-            <nav aria-label="Page navigation example" class="page">
-                <ul class="pagination justify-content-end">
-                    <li class="page-item">
-                        <a class="page-link" style="color:#767676;" href="#" tabindex="-1">Précedent</a>
-                    </li>
-                    <li class="page-item">
-                    <a class="page-link" style="color:#FE1B00;" href="#">suivant</a>
-                    </li>
-                </ul>
-            </nav>
+            <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
+                <a name="" id="" class="btn btn-light disabled mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$precedent;  ?>" role="button">Precedent</a> 
+                <?php else: ?>
+                    <a name="" id="" class="btn btn-light  mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$precedent;  ?>" role="button">Precedent</a> 
+                 <?php endif ?>
+                 <?php if($_GET['page'] > $nombre_page-1): ?>
+                <a name="" id="" class="btn btn-danger suiv text-white mb-3 disabled  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
+                <?php else: ?>
+                    <a name="" id="" class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
+                 <?php endif ?>
                     
         </div>
         

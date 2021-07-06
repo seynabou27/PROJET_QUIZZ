@@ -1,4 +1,11 @@
+<?php 
 
+if (isset($_SESSION['arrayErreur'])){
+    $arrayErreur =$_SESSION['arrayErreur'];
+    unset ($_SESSION['arrayErreur']);
+}
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -90,53 +97,70 @@
         
             
         </div>
-            
+       
             
         <div class="container">
             <div class="contenu">
-                <div class="input-group">
-                    <p class="QU"><b>Question</b></p> <input class="input" type="text" name="" value="">
-                </div>
-                         
-                 <div class="form-group">
-                   <label for="selection"><b>Nombre de point</b></label>
-                   <select id="selection" class="form-control QU1">
-                     <option value=""> Choisir...</option>
-                        <option value="1">1pts</option>
-                        <option value="2">2pts</option>
-                        <option value="3">4pts</option>
-                        <option value="4">50pts</option>
-                        <option value="5">60pts</option>
-                        <option value="6">70pts</option>
-                        <option value="7">100pts</option>
-                   </select>
-                 </div>
-                    
-                <div class="form-group">
-                   <label for="selection"><b>Type de reponse</b></label>
-                   <select id="selection" class="form-control QU2">
-                     <option value=""> Choisir...</option>
-                        <option value="1">Choix simple</option>
-                        <option value="3">choix double</option>
-                        <option value="2">Choix multiple</option>
-                        
-                   </select>
-                   <div class="input-group">
-                        <p class="QU5"><b>Réponse1</b></p> <input style="margin: 3%;" class="QU4" class="input" type="text" name="" value=""> <i class="bi bi-trash-fill"></i>
-                    </div>
+              
+                <form method="post" action="<?=WEB_ROUTE?>"  enctype="multipart/form-data"  style="margin-top: 5%;">
+                    <input type="hidden" name="controlleurs" value="admin"/>
+                    <input type="hidden" name="action" value="<?=!isset($user['id']) ? 'creer_question': 'edit_question';?>"/>
+                    <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>">
                     <div class="input-group">
-                        <p class="QU6"><b>Réponse2</b></p> <input style="margin: 3%;"  class="QU4" class="input" type="text" name="" value=""><i class="bi bi-trash-fill"></i>
+                        <p class="QU"><b>Question</b></p> <input class="input" type="text" name="question" value="<?=$_SESSION['question'] ? $_SESSION['question']:""?>"> <br>
+                        <small id="questionlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['question'])? $arrayErreur['question']:'';?></small>
                     </div>
-                 </div>
-                    <div class="ajout">
-                        <i class="bi bi-plus-square-fill"></i>
+                    <div class="form-group">
+                        <label for="selection"><b>Nombre de point</b></label>
+                        <input type="text" name="nbr_pts"  class="form-control QU4" value="<?= $_SESSION['nbr_pts'] ? $_SESSION['nbr_pts']: ""?>">
+                        <small id="nbr_ptslHelp" class="form-text text-danger"><?php echo isset($arrayErreur['nbr_pts'])? $arrayErreur['nbr_pts']:'';?></small>
+                           
                     </div>
-                    <div class="aligne">
-                        <button type="button" style="color: white;" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                        <button type="button" style="color: white;" name="btn-submit" class="btn btn-enregistrer">Enregistrer</button>
+                    
+                        
+                    <div class="form-group">
+                        <label for="selection" ><b>Type de reponse</b></label>
+                        <select id="selection" name="choice" class="form-control QU2">
+                            <option value=""> Choisir...</option>
+                            <option value="1" >Choix simple</option>
+                            <option value="2" >choix double</option>
+                            <option value="3" >Choix multiple</option>
+                            <small id="choicelHelp" class="form-text text-danger"><?php echo isset($arrayErreur['choice'])? $arrayErreur['choice']:'';?></small>
+                            
+                        </select>
+                        
+                    </div>
+                    
+                    <div class="form-group">
+                       <p class="QU"><b>Nombre de réponses</b></p>
+                           <input type="text" name="nbr_reponse"  class="form-control QU4" value="<?= $_SESSION['nbr_reponse'] ? $_SESSION['nbr_reponse']: ""?>">
+                           <small id="numberlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['nbr_reponse'])? $arrayErreur['nbr_reponse']:'';?></small>
+                           <button type="submit" class="btn btn-dark ajout" name="ajout"><i class="bi bi-plus-square-fill"></i></button>
+                       </div>
+                   
+                    <?php for ($i=0; $i < $_SESSION['nbr_reponse'] ; $i++): ?>
+                       <div class="row ml-5">
+                           <div class="col-md-10">
+                                <input type="text" name="nbr_reponse"  class="form-control QU4 ml-4 "> <br>
+                           </div>
+                         
+                                <?php if ( $_SESSION['choice']== '2'): ?>
+                                <input class="form-check-input ml-auto mr-auto"  type="radio" name="double"id="exampleRadios1" value="option1">
+                                <?php elseif ($_SESSION['choice']== '3'): ?>
+                                <label><input class="" type="checkbox" name="multiple" value=""></label>
+                          </div>
+                        <?php endif ?>
+
+                        <?php endfor ?>
+
+                    
+                    <div class=" aligne">
+                        <a  type="submit" style="color: white;"  class="btn  btn-secondary" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Annuler</a>
+                        <button type="submit" style="color: white;" name="btn-submit" class="btn btn-enregistrer">Enregistrer</button>
                  
 
                     </div>
+                </form>
                     
             </div>
        
@@ -144,101 +168,30 @@
         </div>
        
         
-
-        <style>
-            .retour{
-                margin: 5%;
-                
-            }
-            .container{
-                
-                padding: 2.5%;
-                
-            }
-            .titre{
-                margin-left: 13%;
-                margin-top: -3.2%;
-                font-size: 23px;
-            }
-            .input{
-                border-radius: 20px;
-                background-color: gainsboro;
-                border: 1.5px solid gainsboro;
-                width: 76%;
-                height: 75px;
-                margin-left: 2%;
-
-            }
-            .QU{
-                margin-top: 2%;
-
-
-
-            }
-            
-            .QU1{
-                width: 30%;
-                background-color: gainsboro;
+               
+                         
                 
 
-            }
-            .QU2{
-                width: 70%;
-                background-color: gainsboro;
-                
-
-            }
-            .contenu{
-                border: 2px solid black;
-                border-radius: 2%;
-                height: 800px;
-                
-            }
-            .QU4{
-                
-                border-radius: 20px;
-                background-color: gainsboro;
-                border: 1.5px solid gainsboro;
-                width: 80%;
-                height: 50px;
-                
-
-            } 
-            .input-group{
-                margin-top: 3%;
-                margin: 3%;
-            }
-            .form-group{
-                margin: 5%;
-            }
-            .QU5{
-                margin-top: 4.5%;
-            }
-            .QU6{
-                margin-top: 4.5%;
-            }
-            .bi{
-                margin-top: 5%;
-            }
-            .ajout{
-                text-align: center;
-                margin-top: -3%;
-                margin: 3%;
-            }
-            .btn-enregistrer{
-                background-color:#FE1B00;
-
-            }
-            .aligne{
-                float: right;
-                margin-right: 9%;
-            }
-
-
-        </style>
+        
                     
 
-
+<?php 
+    if (isset( $_SESSION['nbr_reponse'])) {
+        unset( $_SESSION['nbr_reponse']);
+    }
+    if (isset( $_SESSION['choice'])) {
+        unset( $_SESSION['choice']);
+    }
+    if (isset( $_SESSION['question'])) {
+        unset( $_SESSION['question']);
+    }
+    if (isset( $_SESSION['nbr_reponse'])) {
+        unset( $_SESSION['nbr_reponse']);
+    }
+    if (isset( $_SESSION['nbr_pts'])) {
+        unset( $_SESSION['nbr_pts']);
+    }
+?>
         
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

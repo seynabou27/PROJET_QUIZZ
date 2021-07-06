@@ -1,0 +1,72 @@
+[
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": "eknfffekkekenknke",
+        "nbr_pts": "12",
+        "choice": "3",
+        "nbr_reponse": "1",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e43801bff47",
+        "question": "kzzzzzzzzzzzzzzzzzzzzzzz",
+        "nbr_pts": "",
+        "choice": "",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e43d5453e98",
+        "question": "",
+        "nbr_pts": "",
+        "choice": "",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e43db2e61b2",
+        "question": "",
+        "nbr_pts": "",
+        "choice": "",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e43dca0e28a",
+        "question": "",
+        "nbr_pts": "",
+        "choice": "",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e43e7db3ece",
+        "question": "",
+        "nbr_pts": "",
+        "choice": "",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e464f250dec",
+        "question": "Les langages web",
+        "nbr_pts": "44",
+        "choice": "3",
+        "nbr_reponse": "",
+        "btn-submit": ""
+    }
+]

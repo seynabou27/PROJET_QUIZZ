@@ -9,16 +9,12 @@
                 }elseif ($_GET['views']=='deconnexion'){
                     deconnexion();
                     require_once(ROUTE_DIR.'views/security/connexion.html.php');
-                }elseif($_GET['views']=='supprimer'){
-                    //suppression_user();
-                    require_once(ROUTE_DIR. 'view/security/supression.html.php');
+                
 
                 }elseif($_GET['views']=='edit'){
-                    $id =$_GET['id'];
-                    
-                    //$id =$_SESSION['id'];
+                    $_SESSION['id'] =$_GET['id'];
+                    $id = $_SESSION['id'];
                     $user = find_user_by_id($id);
-                    //inscription($_POST);
                     require_once(ROUTE_DIR. 'views/admin/creer_admin.html.php');
                 }
             }else{
@@ -34,8 +30,10 @@
                     unset($_POST['controller']);
                     unset($_POST['action']);
                     //unset($password['controller']);
+                    
                     inscription($_POST);
-                    header('location:'.WEB_ROUTE.'?controlleurs=admin&views=connexion');
+
+                    //header('location:'.WEB_ROUTE.'?controlleurs=admin&views=connexion');
 
                 }elseif ($_POST['action']== 'edit'){
                     inscription($_POST);
@@ -101,17 +99,25 @@ function inscription(array $data):void{
         if(form_valid($arrayErreur)){
             unset ($data['password1']); 
             $data ['role'] = est_admin()? "ROLE_ADMIN": "ROLE_JOUEUR"  ;
-            if (isset($data['id'])){
+            if (isset($data['id']) && $data['id'] != ""){
+                
+                
 
                 if (est_admin()) {
+                   
                     modif_user($data);
                     header("location:" .WEB_ROUTE.'?controlleurs=admin&views=liste_admin');
     
                 }
             }else{
+                
                 add_user($data);
+                if (est_admin()) {
+                    header("location:" .WEB_ROUTE.'?controlleurs=admin&views=liste_admin');
+                    
+                }else
            
-             header("location:" .WEB_ROUTE.'?controlleurs=security&views=connexion');
+                header("location:" .WEB_ROUTE.'?controlleurs=security&views=connexion');
             }
     
            

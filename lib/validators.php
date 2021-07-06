@@ -1,6 +1,6 @@
 <?php
 //fonction de validation
-function est_vide(string $valeur):bool{
+function est_vide( $valeur):bool{
     return empty($valeur);
 }
 
@@ -76,11 +76,58 @@ function verif_taille(string $valeur, int $min=6 , int $max=10):bool{
         }
     }*/
 
+   function validation_input(string $valeur , string $key,array &$arrayErreur){
+            if (est_vide($valeur)) {
+                $arrayErreur[$key]= 'le champs est obligatoire';
+                
+        }
+    }
+    function validation_nbrpoint(string $valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]= 'le champs est obligatoire';
+        }elseif($valeur<=0){
+            $arrayErreur[$key]= 'Saisir un nombre positif';
+        }
+    }
 
-   
+    function validation_nombrereponse(string $valeur , string $key,array &$arrayErreur){
+       if (est_vide($valeur)) {
+           $arrayErreur[$key]= 'Le champs est obligatoire';
+       }elseif ($valeur<=0){
+        $arrayErreur[$key]= 'Saisir un nombre positif';
 
+       }
+    }
 
+    function validation_typereponse( $valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]= 'le champs est obligatoire';
+        }
+    }
 
-    
+    function nombrePageTotal($array, $nombreElement): int {
+        $nombrePage = 0;
+        $longueurArray = count($array);
+        if ($longueurArray % $nombreElement == 0) {
+            $nombrePage = $longueurArray / $nombreElement;
+        } else {
+            $nombrePage = ($longueurArray / $nombreElement) + 1;
+        }
+        return $nombrePage;
+    }
+
+function get_element_to_display($array, int $page, int $nombreElement): array {
+    $arrayElement = [];
+    $indiceDepart = ($page*$nombreElement) - $nombreElement;
+    $limitElement = $page * $nombreElement;
+    for ($i = $indiceDepart; $i < $limitElement; $i++) {
+        if ($i >= count($array)) {
+            return $arrayElement;
+        } else {
+            $arrayElement[] = $array[$i];
+        }
+    }
+    return $arrayElement;
+}
 ?>
-
+ 

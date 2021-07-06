@@ -84,9 +84,10 @@
 
     
             <!-- Pop-up -->
-            <?php   $json = file_get_contents(FILE_USERS);
+            <?php  
+                $json = file_get_contents(FILE_USERS);
                     // 2 convertir contenu en tableau
-                    $arrayuser = json_decode($json, true);
+                $arrayuser = json_decode($json, true);
                     
 
             ?>
@@ -113,7 +114,8 @@
                         <td>
                             <?=  $user["nom"]." ".$user['Prenom'] ?>
                         </td>
-                        <td>  <?=  $user["login"]." ".$user['role'] ?></td>
+                        <td>  <?=  $user["login"]?></td>
+                        <td>350pts</td>
                        
                     </tr>
                     <?php endif ?>

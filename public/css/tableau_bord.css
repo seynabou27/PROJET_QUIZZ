@@ -1,0 +1,99 @@
+nav{
+    background-color: black;
+
+}
+.navbar-toggler-icon{
+    background-color: white;
+    border-radius: 3px;
+}
+button:after{
+    color: white;
+
+
+
+}
+link{
+    color: white;
+}
+
+a:hover{
+    color: white;
+    background-color: #212121;
+    border-bottom: 5px solid white;
+
+}
+ul li a {
+    text-decoration:none;
+    color: #7a7a7a;
+
+}
+.btn{
+    color: #767676;
+}
+
+.justify-content-center{
+    margin-left: 25%;
+}
+.btn:hover{
+    color: white;
+}
+
+ul{
+    margin-left: 28%;
+    color: white;
+
+}
+
+
+img{
+    width: 45px;
+}
+h3{
+    font-size: 16px;
+    margin-top: 2.5%;
+    color: white;
+
+}
+h2{
+    font-size: 20px;
+    margin: 6%;
+}
+.image{
+    margin-left: 14%;
+}
+.btn-n{
+    float: right;
+    margin: 2%;
+    background-color:#FE1B00;
+    color: white;
+}
+.btn-enregistrer{
+    background-color:#FE1B00;
+
+}
+.texte{
+    font-size: 25px;
+    text-align: center;
+
+}
+.admin{
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    margin: 7%;
+    
+
+    
+}
+.joueur{
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    margin: 7%;
+}
+.question{
+    width: 50%;
+    text-align: center;
+    padding: 5%;
+    margin: 7%;
+}

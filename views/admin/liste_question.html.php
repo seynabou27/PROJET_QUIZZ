@@ -87,6 +87,7 @@
         </div>
         <h2><b>Liste des questions</b></h2>
         <?php 
+        /*
             $question1 = $_POST['question1'];   
             $question2 = $_POST['question2']; 
             $question3 = $_POST['question3']; 
@@ -112,7 +113,14 @@
             
             if ($question5==($value=$_POST['option1'])){
             }elseif ($question5==($value=$_POST['option2'])) 
+            */
             
+            $json = file_get_contents(FILE_QUESTION);
+        
+            // 2 convertir contenu en tableau
+            $arrayuser = json_decode($json, true);
+            
+                
             
            ?>
             
@@ -132,15 +140,38 @@
                         <div class="checkbox">
                             <label for="3"><input type="checkbox" name="question1" value="correct2">JAVA</label>
                         </div>
-                        <!--<div class="modification">
-                            <a name="" id="" class="btn btn-light modifier" href="<?php //WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?php //WEB_ROUTE.'?controlleurs=security&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>-->
+                        <div class="modification">
+                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=confirmation'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
+                        </div>
                        
                     </div>
                     <style>
                         .modification{
-                            padding: 4%;
+                            padding: 3%;
+                            
+                            
+
+                        }
+                        .modification1{
+                            margin: 9%;
+                            
+                        }
+                        .modification2{
+                            margin: 8%;
+                            
+                            
+
+                        }
+                        .modification3{
+                            margin: 14%;
+                            
+                            
+
+                        }
+                        .modification4{
+                            margin: 8%;
+                            
                             
 
                         }
@@ -152,8 +183,14 @@
                     <div class="question3">
                         <p><b> 3. Quel terme définit le langage qui<br/> s'adapte sur Android et sur Ios?</b></p>
                         <input type="text" class="input" value="">  
+
+                        <div class="modification1">
+                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
+                        </div>
                        
                     </div>
+                    
                     <div class="question5">
                         <p><b> 5. Les précurseurs de la révolution digitale.</b></p>
                         <div class="form-check">
@@ -167,6 +204,10 @@
                             <label class="form-check-label" for="exampleRadios2">
                                 CIA-FBI
                             </label>
+                        </div>
+                        <div class="modification2">
+                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
                         </div>
                     </div>
                     
@@ -186,6 +227,10 @@
                                     Kirikoro
                             </label>
                         </div>
+                        <div class="modification3">
+                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
+                        </div>
                     </div>  
                     <div class="question4">
                         <p><b> 4. Quel est le premier ecole de codage au sénégal?</b></p>
@@ -200,6 +245,10 @@
                             <label class="form-check-label" for="exampleRadios2">
                             senecartour
                             </label>
+                        </div>
+                        <div class="modification4">
+                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
                         </div>
                     </div>
                 

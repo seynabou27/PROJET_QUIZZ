@@ -11,162 +11,144 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <link rel="stylesheet" href="<?=WEB_ROUTE.'css/tableau_bord.css'?>">
   </head>
   <body>
 
-        <nav class="navbar navbar-expand-sm navbar-light ">
-            
-            <?php
-                $remoteImage = ROUTE_DIR."public/img/logo.png";
-                $type = pathinfo($remoteImage, PATHINFO_EXTENSION);
-                $data = file_get_contents($remoteImage);
-                $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data); 
-            ?>
-            
-            <img src="<?=$base64?>" alt="tes">            
-               
-            <h3>Le plaisir de jouer</h3> 
-        
-        
-            <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="collapsibleNavId">
-                <ul class="nav justify-content-center">
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-light ">
                 
-                    <?php if (est_admin()) :?>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=tableau_bord'?>">Tableau de bord</a>
-                        </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Questions</a>
-                        </li>
+                <?php
+                    $remoteImage = ROUTE_DIR."public/img/logo.png";
+                    $type = pathinfo($remoteImage, PATHINFO_EXTENSION);
+                    $data = file_get_contents($remoteImage);
+                    $base64 = 'data:image/' . $type . ';base64,' . base64_encode($data); 
+                ?>
+                
+                <img src="<?=$base64?>" alt="tes">            
+                
+                <h3>Le plaisir de jouer</h3> 
+            
+            
+                <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="collapsibleNavId">
+                    <ul class="nav justify-content-center">
+                    
+                        <?php if (est_admin()) :?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=tableau_bord'?>">Tableau de bord</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Questions</a>
+                            </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Administrateurs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur'?>">Joueurs</a>
+                            </li>
+                        <?php endif ?>
+
+            
+                    </ul>
+
+            
+
+                    <?php if (est_joueur()) : ?>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">jeu</a>
                         </li>
                     <?php endif ?>
+                    <img class="image" src="<?=WEB_ROUTE."img/avatar.png"?>" alt="avatar">
 
+                    <?php if (est_connect()) : ?>
         
-                </ul>
+                        <div class="dropdown">
+                            <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Sambata Ndiaye
+                            </a>
 
-           
-
-                <?php if (est_joueur()) : ?>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">jeu</a>
-                    </li>
-                <?php endif ?>
-                <img class="image" src="<?=WEB_ROUTE."img/avatar.png"?>" alt="avatar">
-
-                <?php if (est_connect()) : ?>
-    
-                    <div class="dropdown">
-                        <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Sambata Ndiaye
-                        </a>
-
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#">Paramétre</a>
-                            <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleurs=security&views=deconnexion'?>">Déconnexion</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <a class="dropdown-item" href="#">Paramétre</a>
+                                <a class="dropdown-item" href="<?=WEB_ROUTE.'?controlleurs=security&views=deconnexion'?>">Déconnexion</a>
+                            </div>
                         </div>
-                    </div>
-                <?php endif ?>
-    
-    
-            </div>
+                    <?php endif ?>
+        
+        
+                </div>
+                    
+            
+            </nav>
+        </header>
+        <?php 
+
+            $json = file_get_contents(ROUTE_DIR.'data/user.data.json');
                 
-           
-        </nav>
+            // 2 convertir contenu en tableau
+            $arrayuser = json_decode($json, true);
+            $json = file_get_contents(ROUTE_DIR.'data/user.question.json');
+                
+            // 2 convertir contenu en tableau
+            $arrayquestion = json_decode($json, true);
 
+            $compteurj=$compteuri=$compteura=0;
+            foreach ($arrayuser as $user){
+                if ($user['role']=='ROLE_JOUEUR') {
+                    $compteurj++;
+
+                }elseif($user['role']=='ROLE_ADMIN'){
+                    $compteuri++;
+                }
+            }
+            $compteura=0;
+            foreach($arrayquestion as $question){
+                $compteura++;
+
+            }
+
+
+
+
+
+
+
+        ?>
+
+        <div class="container  justify-content-center">
+            <div class="card admin"> 
+            <b><?=$compteuri?></b> 
+                <b>Administateurs </b>  
+                <i class="bi bi-bar-chart"></i>
+            </div>
+
+            <div class="card joueur">
+                <b><?=$compteurj ?></b>
+                <b>Nombre de joueur </b>
+                <i class="bi bi-bar-chart"></i>
+            </div>
+
+        
+            <div class="card question">
+                <b><?=$compteura?></b>
+                <b>Nombres de question</b>
+                
+                <i class="bi bi-bar-chart"></i> 
+
+            </div>
+
+            
+        </div>
         <style>
-            
-            nav{
-                background-color: black;
-            
-            }
-            .navbar-toggler-icon{
-                background-color: white;
-                border-radius: 3px;
-            }
-            button:after{
-                color: white;
-
-            
-
-            }
-            link{
-                color: white;
-            }
-       
-            a:hover{
-                color: white;
-                background-color: #212121;
-                border-bottom: 5px solid white;
-            
-            }
-            ul li a {
-                text-decoration:none;
-                color: #7a7a7a;
-            
-            }
-            .btn{
-                color: #767676;
-            }
-            
-            .justify-content-center{
-                margin-left: 25%;
-            }
-            .btn:hover{
-                color: white;
-            }
+           
         
-            ul{
-                margin-left: 28%;
-                color: white;
-            
-            }
-        
-        
-            img{
-                width: 45px;
-            }
-            h3{
-                font-size: 16px;
-                margin-top: 2.5%;
-                color: white;
-
-            }
-            h2{
-                font-size: 20px;
-                margin: 6%;
-            }
-            .image{
-                margin-left: 14%;
-            }
-            .btn-n{
-                float: right;
-                margin: 2%;
-                background-color:#FE1B00;
-                color: white;
-            }
-            .btn-enregistrer{
-                background-color:#FE1B00;
-
-            }
-            .texte{
-                font-size: 25px;
-                text-align: center;
-            
-            }
-            
-            
-    
         </style>
+
+        
               
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
