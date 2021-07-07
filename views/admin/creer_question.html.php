@@ -92,10 +92,10 @@ if (isset($_SESSION['arrayErreur'])){
         <div class="container-fluid">
         <div class="retour">
             <i class="bi bi-arrow-left-circle"><a class="btn" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>" role="button">Liste questions</a></i>
-            <p class="titre"><b>Création question</b></p>
+            
         </div>
         
-            
+        <h1 class="titre">Création question</h1>
         </div>
        
             
@@ -106,8 +106,10 @@ if (isset($_SESSION['arrayErreur'])){
                     <input type="hidden" name="controlleurs" value="admin"/>
                     <input type="hidden" name="action" value="<?=!isset($user['id']) ? 'creer_question': 'edit_question';?>"/>
                     <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>">
-                    <div class="input-group">
-                        <p class="QU"><b>Question</b></p> <input class="input" type="text" name="question" value="<?=$_SESSION['question'] ? $_SESSION['question']:""?>"> <br>
+                    
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"><b>Question</b></label>
+                        <textarea class="form-control input"  id="exampleFormControlTextarea1" rows="3" value="<?=$_SESSION['question'] ? $_SESSION['question']:""?>"></textarea>
                         <small id="questionlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['question'])? $arrayErreur['question']:'';?></small>
                     </div>
                     <div class="form-group">
@@ -155,8 +157,8 @@ if (isset($_SESSION['arrayErreur'])){
 
                     
                     <div class=" aligne">
-                        <a  type="submit" style="color: white;"  class="btn  btn-secondary" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Annuler</a>
-                        <button type="submit" style="color: white;" name="btn-submit" class="btn btn-enregistrer">Enregistrer</button>
+                        <a  type="submit" style="color: white;"  class="btn  btn-secondary " href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Annuler</a>
+                        <button type="submit" style="color: white;" name="btn-submit" class="btn btn-enregistrer annuler">Enregistrer</button>
                  
 
                     </div>

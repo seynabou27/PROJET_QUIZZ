@@ -79,17 +79,15 @@
                 
             }
             .titre{
-                margin-left: 13%;
-                margin-top: -3.2%;
-                font-size: 23px;
+                text-align: center;
+                margin-top: -7%;
             }
             .input{
-                border-radius: 20px;
+                
                 background-color: gainsboro;
-                border: 1.5px solid gainsboro;
-                width: 76%;
-                height: 75px;
-                margin-left: 2%;
+               
+                
+                
 
             }
             .QU{
@@ -111,12 +109,7 @@
                 
 
             }
-            .contenu{
-                border: 2px solid black;
-                border-radius: 2%;
-              
-                
-            }
+            
             .QU4{
                 background-color: gainsboro;
                 margin-right: 3%;
@@ -151,6 +144,9 @@
             .btn-enregistrer{
                 background-color:#FE1B00;
 
+            }
+            .aligne{
+                float: right;
             }
             
 

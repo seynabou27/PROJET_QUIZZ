@@ -12,7 +12,8 @@
   </head>
   <body>
       
-    <header>
+    <header class="menu">
+       
         <nav class="navbar navbar-expand-sm navbar-light ">
             
             <?php
@@ -88,6 +89,33 @@
                 $json = file_get_contents(FILE_USERS);
                     // 2 convertir contenu en tableau
                 $arrayuser = json_decode($json, true);
+
+                $liste_user =[];
+                $nombre_page=0;
+                $page=1;
+                $suivant=2;
+                $joueur_user=[];
+                foreach($arrayuser as $user){
+                    if ($user['role'] == 'ROLE_ADMIN'){
+                        $joueur_user[]=$user;
+                    }
+                }
+                if(!isset($_GET['page'])){
+                    $page=1;
+                    $_SESSION['joueur_user'] = $joueur_user;
+                    $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
+                    $liste_user= get_element_to_display($_SESSION['joueur_user'],$page,10);
+                }
+                if (isset($_GET['page'])){
+                    $page=$_GET['page'];
+                    $suivant=$page+1;
+                    $precedent=$page-1;
+                    if (isset($_SESSION['joueur_user'])) {
+                        $_SESSION['joueur_user'] = $joueur_user;
+                        $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
+                        $liste_user = get_element_to_display($_SESSION['joueur_user'],$page,10);
+                    }
+                }
                     
 
             ?>
@@ -125,6 +153,18 @@
 
             </table>
     </div>
+
+    <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
+                <a name="" id="" class="btn btn-light disabled mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
+                <?php else: ?>
+                    <a name="" id="" class="btn btn-light  mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
+                 <?php endif ?>
+                 <?php if($_GET['page'] > $nombre_page-1): ?>
+                <a name="" id=""  class="btn btn-danger suiv text-white mb-3 disabled  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
+                <?php else: ?>
+                    <a name="" id=""  class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
+                 <?php endif ?>
+                    
         
 
 
@@ -202,6 +242,14 @@
                             margin: 2%;
                             background-color:#FE1B00;
                             color: white;
+                        }
+                        .suiv{
+                            background-color: #FE1B00;
+
+                        }
+                        .btn-danger:hover{
+                            background-color: #FE1B00;
+                            border-color:#FE1B00;
                         }
                         
        

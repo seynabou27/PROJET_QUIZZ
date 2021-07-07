@@ -170,14 +170,24 @@
                     <a name="" id="" class="btn btn-light  mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$precedent;  ?>" role="button">Precedent</a> 
                  <?php endif ?>
                  <?php if($_GET['page'] > $nombre_page-1): ?>
-                <a name="" id="" class="btn btn-danger suiv text-white mb-3 disabled  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
+                <a name="" id=""  class="btn btn-danger suiv text-white mb-3 disabled  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
                 <?php else: ?>
-                    <a name="" id="" class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
+                    <a name="" id=""  class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
                  <?php endif ?>
                     
         </div>
         
+                    <style>
+                        .suiv{
+                            background-color: #FE1B00;
 
+                        }
+                        .btn-danger:hover{
+                            background-color: #FE1B00;
+                            border-color:#FE1B00;
+                        }
+                    
+                    </style>
 
      
         <!-- Optional JavaScript -->

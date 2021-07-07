@@ -98,9 +98,13 @@
     
             </div>
         </nav>
-
+            
         
               <div class="container-fluid">
+                <div class="retour">
+                    <i class="bi bi-arrow-left-circle"></i><a class="btn" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>" role="button">Liste des administrateurs</a>
+            
+                </div>  
 
               <form method="post" action="<?=WEB_ROUTE?>"  enctype="multipart/form-data"  style="margin-top: 5%;">
                      <input type="hidden" name="controlleurs" value="security"/>
@@ -111,28 +115,33 @@
  
                <div class="row mb-3">
                      <div class="col">
-                       <input type="text"  name="Prenom" class="form-control" style="background-color: #eee;" placeholder="Prénom" value="<?=isset($user['Prenom']) ? $user['Prenom']:'';?>" >
+                         Prenom
+                       <input type="text"  name="Prenom" class="form-control" style="background-color: #eee;" placeholder="" value="<?=isset($user['Prenom']) ? $user['Prenom']:'';?>" >
                        <small class="form-text text-danger"><?php echo isset($arrayErreur['Prenom'])? $arrayErreur['Prenom']:'';?></small>
                      </div>
                      <div class="col">
-                       <input type="text" name="nom" class="form-control"style="background-color: #eee;" value="<?=isset($user['nom']) ? $user['nom']:'';?>" placeholder="Nom">
+                         Nom
+                       <input type="text" name="nom" class="form-control"style="background-color: #eee;" value="<?=isset($user['nom']) ? $user['nom']:'';?>" placeholder="">
                        <small class="form-text text-danger"><?php echo isset($arrayErreur['nom'])? $arrayErreur['nom']:'';?></small>
                      </div>
                </div>
                 <div class="form-group">
                          <label for="exampleInputEmail1"></label>
-                         <input type="texte" name="login" class="form-control" style="background-color: #eee;" aria-describedby="emailHelp" value="<?=isset($user['login']) ? $user['login']:'';?>"  placeholder="Nom d'utilisateur / Email">
+                         Adresse Email
+                         <input type="texte" name="login" class="form-control" style="background-color: #eee;" aria-describedby="emailHelp" value="<?=isset($user['login']) ? $user['login']:'';?>"  placeholder="Name123@gmail.com">
                          <small id="emailHelp" class="form-text text-danger"><?php echo isset($arrayErreur['login'])? $arrayErreur['login']:'';?></small>
                   </div>
                  <div class="row mb-3">
                  <div class="col">
                      <label for="exampleInputPassword"></label>
-                     <input type="password" name="password" class="form-control"  style="background-color: #eee;"value="<?=isset($user['password']) ? $user['password']:'';?>" placeholder="Mot de passe">
+                     Mot de passe
+                     <input type="password" name="password" class="form-control"  style="background-color: #eee;"value="<?=isset($user['password']) ? $user['password']:'';?>" placeholder="**********">
                      <small id="passwordlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['password'])? $arrayErreur['password']:'';?></small>
                  </div>
                  <div class="col">
                      <label for="exampleInputPassword1"></label>
-                     <input type="password" name="password1" class="form-control"  style="background-color: #eee;" value="<?=isset($user['password1']) ? $user['password1']:'';?>" placeholder="Confirmer mot de passe">
+                     Confirmer mot de passe
+                     <input type="password" name="password1" class="form-control"  style="background-color: #eee;" value="<?=isset($user['password1']) ? $user['password1']:'';?>" placeholder="**********">
                      <small id="passwordlHelp" class="form-text text-danger">
                          <?php echo isset($arrayErreur['password'])? $arrayErreur['password']:'';?>
                          <?php echo isset($arrayErreur['password1'])? $arrayErreur['password1']:'';?></small> 
