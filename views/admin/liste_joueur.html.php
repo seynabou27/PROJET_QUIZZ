@@ -94,26 +94,26 @@
                 $nombre_page=0;
                 $page=1;
                 $suivant=2;
-                $joueur_user=[];
+                $admin_user=[];
                 foreach($arrayuser as $user){
-                    if ($user['role'] == 'ROLE_ADMIN'){
-                        $joueur_user[]=$user;
+                    if ($user['role'] == 'ROLE_JOUEUR'){
+                        $admin_user[]=$user;
                     }
                 }
                 if(!isset($_GET['page'])){
                     $page=1;
-                    $_SESSION['joueur_user'] = $joueur_user;
-                    $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
-                    $liste_user= get_element_to_display($_SESSION['joueur_user'],$page,10);
+                    $_SESSION['admin_user'] = $admin_user;
+                    $nombre_page = nombrePageTotal($_SESSION['admin_user'],10);
+                    $liste_user= get_element_to_display($_SESSION['admin_user'],$page,10);
                 }
                 if (isset($_GET['page'])){
                     $page=$_GET['page'];
                     $suivant=$page+1;
                     $precedent=$page-1;
-                    if (isset($_SESSION['joueur_user'])) {
-                        $_SESSION['joueur_user'] = $joueur_user;
-                        $nombre_page = nombrePageTotal($_SESSION['joueur_user'],10);
-                        $liste_user = get_element_to_display($_SESSION['joueur_user'],$page,10);
+                    if (isset($_SESSION['admin_user'])) {
+                        $_SESSION['admin_user'] = $admin_user;
+                        $nombre_page = nombrePageTotal($_SESSION['admin_user'],10);
+                        $liste_user = get_element_to_display($_SESSION['admin_user'],$page,10);
                     }
                 }
                     
@@ -154,6 +154,7 @@
             </table>
     </div>
 
+    <div class="pagination">
     <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
                 <a name="" id="" class="btn btn-light disabled mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
                 <?php else: ?>
@@ -164,6 +165,8 @@
                 <?php else: ?>
                     <a name="" id=""  class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
                  <?php endif ?>
+        
+    </div>
                     
         
 
@@ -250,6 +253,10 @@
                         .btn-danger:hover{
                             background-color: #FE1B00;
                             border-color:#FE1B00;
+                        }
+                        .pagination{
+                            float: right;
+                            margin-right: 10%;
                         }
                         
        

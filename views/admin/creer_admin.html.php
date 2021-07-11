@@ -154,8 +154,19 @@
                   <small id="" class="form-text text-danger"></small>                         
                   <label style="color:black;" for="file">Fichier</label>
                   <input type="file" name="file">
-                  <button type="submit" class="btn w-75 p-2" name="btn_submit" style="background-color: #FE1B00; color:white;">Je m'inscris</button>
-                          
+                  <div class="boutton">
+                    
+                    <button type="submit" class="btn w-15 p-2" name="btn_submit" style="background-color: #FE1B00; color:white;">Enregistrer</button>
+                    <a  type="submit" style="color: white;"  class="btn  btn-secondary annuler " href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin'?>">Annuler</a>
+                  </div>
+                 
+                         <style>
+                            .boutton .btn{
+                                margin: 1%;
+                                float: right;
+
+                            }
+                         </style> 
                 </div>
                      
              </form>

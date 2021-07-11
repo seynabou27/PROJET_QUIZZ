@@ -1,0 +1,32 @@
+nav{
+    background-color: black;
+    
+}
+
+
+
+
+img{
+    width: 45px;
+}
+
+.texte{
+    text-align: center;
+    padding: 4%;
+    margin-top: -10%;
+}
+h3{
+    font-size: 29px;
+    margin-top: 2.5%;
+    color: white;
+    margin-left: 39%;
+
+}
+.image{
+    margin-left: 14%;
+}
+.card{
+    margin: 5%;
+    color: white;
+}
+

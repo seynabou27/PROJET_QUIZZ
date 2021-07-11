@@ -87,47 +87,83 @@
         </div>
         <h2><b>Liste des questions</b></h2>
         <?php 
-        /*
-            $question1 = $_POST['question1'];   
-            $question2 = $_POST['question2']; 
-            $question3 = $_POST['question3']; 
-            $question4 = $_POST['question4']; 
-            $question5 = $_POST['question5'];  
-            $rpcorret = 0;
-            
-            if ($question1==($value=$_POST['correct1'] && $value=$_POST['correct3'])) {
-             }elseif ($question1==($value=$_POST['pascorrect'])) 
-            
-            
-           if ($question3==($value=$_POST['oui'])){
-            }elseif ($question2==($value=$_POST['non'])) 
-            
-            
-            
-           if ($question2==($value=$_POST['option1'])) {
-            }elseif ($question3==($value=$_POST['option2'])) 
-            
-          
-           if ($question4==($value=$_POST['option1'])){
-            }elseif ($question4==($value=$_POST['option2'])) 
-            
-            if ($question5==($value=$_POST['option1'])){
-            }elseif ($question5==($value=$_POST['option2'])) 
-            */
             
             $json = file_get_contents(FILE_QUESTION);
-        
             // 2 convertir contenu en tableau
-            $arrayuser = json_decode($json, true);
-            
-                
-            
+            $arrayuser = json_decode($json, true);  
            ?>
             
         <div class="container-fluid">
-            <div class="row">
+
+        <table class="table table-striped">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">#</th>
+                        <th scope="col">Questions</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($arrayuser as $question): ?>
+                       
+                 
+                        
+                   
+                    <tr >
+                    <th scope="row"></th>
+                        <td>  
+                            <?=$question['question'] ?> 
+                           
+                            <?php if ($question['choice']=='2'): ?> <?php echo "</br>" ?>
+                            <?php //foreach($question['reponse'] as $key => $reponse) :?>
+                            <input type="radio" name="double"   <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$key? 'checked': '';?>>  <?= $reponse ?>CHOIX1<br>
+                            <input type="radio" name="double"   <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$key? 'checked': '';?>>  <?= $reponse ?>CHOIX2<br>
+                    
+                            <?php //endforeach ?>
+              
+                            <?php endif ?>
+
+                            <?php if ($question['choice']=='3'): ?> <?php echo "</br>" ?>
+                
+                            <?php  //foreach($question['reponse'] as $key=> $reponse) :?>
+                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>HTML<br>
+                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>S<br>
+                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>JAVA<br>
+                            <?php //endforeach ?>
+                            <?php endif ?>
+
+                            <?php if ($question['choice']=='1'): ?>
+                            <input type="text" class="input" style="" name=""  value="<?= $question['reponse'][0] ?>">   <?= $question['reponse1'] ?></td><br>
+                            <?php endif ?>
+                        </td>   
+                        <td> 
+                            <div class="modification">
+                            <a name="" id="" class="btn btn-light modifier" href="<?= WEB_ROUTE.'?controlleurs=admin&views=edit_question&id='.$question['id']?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
+                            <a name="" id="" class="btn btn-light supprimer" href="<?= WEB_ROUTE.'?controlleurs=admin&views=suppression&id='.$question['id']?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                   
+                    <?php endforeach?>
+
+                    
+                </tbody>
+            </table>
+        </div>
+       
+                        
+
+    
+
+
+
+            <!--<div class="row">
                 <div class="col-md-6 left">
                     <div class="question1">
+                    
+                    
+                        
                         <p><b> 1. Les langages web. </b></p>
                         <div class="checkbox">
                             <label for="1"><input type="checkbox" name="question1" value="correct1">HTML</label> 
@@ -144,41 +180,10 @@
                             <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
                             <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=confirmation'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
                         </div>
+                        
+                        
                        
                     </div>
-                    <style>
-                        .modification{
-                            padding: 3%;
-                            
-                            
-
-                        }
-                        .modification1{
-                            margin: 9%;
-                            
-                        }
-                        .modification2{
-                            margin: 8%;
-                            
-                            
-
-                        }
-                        .modification3{
-                            margin: 14%;
-                            
-                            
-
-                        }
-                        .modification4{
-                            margin: 8%;
-                            
-                            
-
-                        }
-                       
-                    
-                    </style>
-                    
                     
                     <div class="question3">
                         <p><b> 3. Quel terme définit le langage qui<br/> s'adapte sur Android et sur Ios?</b></p>
@@ -264,7 +269,7 @@
         
             
               
-        <!-- Optional JavaScript -->
+         Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

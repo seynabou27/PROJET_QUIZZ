@@ -22,7 +22,8 @@
       <link rel="stylesheet" href="<?=WEB_ROUTE.'css/liste_admin.css'?>">
   </head>
   <body>
-
+    <header class="menu">
+    
         <nav class="navbar navbar-expand-sm navbar-light ">
             
             <?php
@@ -92,6 +93,7 @@
                 
            
         </nav>
+    </header>
         
         <div class="boutton">
         <a class="btn btn-registre" style="color:white;" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_admin'?>" role="button"><i class="bi bi-plus-lg"></i>Création d'un administrateur</a>

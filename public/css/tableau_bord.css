@@ -1,3 +1,4 @@
+
 nav{
     background-color: black;
 
@@ -12,13 +13,23 @@ button:after{
 
 
 }
+.justify-content-center{
+    margin-left: 22%;
+}
+.btn:hover{
+    color: white;
+}
 link{
     color: white;
 }
+.btn{
+    color: #767676;
+}
+
 
 a:hover{
     color: white;
-    background-color: #212121;
+    
     border-bottom: 5px solid white;
 
 }
@@ -26,16 +37,6 @@ ul li a {
     text-decoration:none;
     color: #7a7a7a;
 
-}
-.btn{
-    color: #767676;
-}
-
-.justify-content-center{
-    margin-left: 25%;
-}
-.btn:hover{
-    color: white;
 }
 
 ul{
@@ -67,10 +68,36 @@ h2{
     background-color:#FE1B00;
     color: white;
 }
-.btn-enregistrer{
-    background-color:#FE1B00;
+.retour{
+    margin: 5%;
+    
+}
+.container{
+    
+    padding: 2.5%;
+    
+}
+.titre{
+    text-align: center;
+    margin-top: -7%;
+}
+
+h3{
+    font-size: 16px;
+    margin-top: 2.5%;
+    color: white;
+    text-align: center;
 
 }
+
+
+
+
+
+
+
+
+
 .texte{
     font-size: 25px;
     text-align: center;

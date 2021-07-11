@@ -76,21 +76,11 @@ function verif_taille(string $valeur, int $min=6 , int $max=10):bool{
         }
     }*/
 
-   function validation_input(string $valeur , string $key,array &$arrayErreur){
-            if (est_vide($valeur)) {
-                $arrayErreur[$key]= 'le champs est obligatoire';
-                
-        }
-    }
-    function validation_nbrpoint(string $valeur , string $key,array &$arrayErreur){
-        if (est_vide($valeur)) {
-            $arrayErreur[$key]= 'le champs est obligatoire';
-        }elseif($valeur<=0){
-            $arrayErreur[$key]= 'Saisir un nombre positif';
-        }
-    }
+   
+    
+    
 
-    function validation_nombrereponse(string $valeur , string $key,array &$arrayErreur){
+    /*unction validation_nombrereponse(string $valeur , string $key,array &$arrayErreur){
        if (est_vide($valeur)) {
            $arrayErreur[$key]= 'Le champs est obligatoire';
        }elseif ($valeur<=0){
@@ -100,6 +90,56 @@ function verif_taille(string $valeur, int $min=6 , int $max=10):bool{
     }
 
     function validation_typereponse( $valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]= 'le champs est obligatoire';
+        }
+    }
+    function valid_input( $valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]='Le champ est obligatoire';
+        }
+    }
+
+    function validation_nbrpoint( $valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]= 'le champs est obligatoire';
+        }elseif($valeur<=0){
+            $arrayErreur[$key]= 'Saisir un nombre positif';
+        }
+    }
+
+    function validation_nombrereponse($valeur , string $key,array &$arrayErreur){
+        if (est_vide($valeur)) {
+            $arrayErreur[$key]= 'Le champs est obligatoire';
+        }elseif ($valeur<=0){
+         $arrayErreur[$key]= 'Saisir un nombre positif';
+ 
+        }
+     }*/
+
+     function valid_input($valeur,string $key,array &$arrayErreur){
+        if (empty($valeur)) {
+            $arrayErreur[$key] = "Ce champ est obligatoire ";
+        }
+    }
+    
+    function valid_point($valeur,string $key,array &$arrayErreur){
+        if (empty($valeur)) {
+            $arrayErreur[$key] = "Ce champ est obligatoire ";
+        }elseif ($valeur<=0) {
+            $arrayErreur[$key] = "Veillez saisir un nombre positif";
+        }
+    }
+    
+    
+    function valid_nbr_reponse($valeur,string $key,array &$arrayErreur){
+        if (empty($valeur)) {
+            $arrayErreur[$key] = "Ce champ est obligatoire ";
+        }elseif ($valeur<=0) {
+            $arrayErreur[$key] = "Veillez saisir un nombre positif";
+        }
+    }
+    function validation_typereponse($valeur , string $key,array &$arrayErreur){
         if (est_vide($valeur)) {
             $arrayErreur[$key]= 'le champs est obligatoire';
         }
@@ -130,4 +170,6 @@ function get_element_to_display($array, int $page, int $nombreElement): array {
     return $arrayElement;
 }
 ?>
- 
+
+
+

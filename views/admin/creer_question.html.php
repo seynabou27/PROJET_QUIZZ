@@ -2,9 +2,13 @@
 
 if (isset($_SESSION['arrayErreur'])){
     $arrayErreur =$_SESSION['arrayErreur'];
-    unset ($_SESSION['arrayErreur']);
+    unset($_SESSION['arrayErreur']);
 }
 
+$quest=$_SESSION['question'];
+$nbr_point=$_SESSION['nbr_pts'];
+$type=$_SESSION['choice'];
+$nombrereponse=$_SESSION['nbr_reponse'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -104,17 +108,17 @@ if (isset($_SESSION['arrayErreur'])){
               
                 <form method="post" action="<?=WEB_ROUTE?>"  enctype="multipart/form-data"  style="margin-top: 5%;">
                     <input type="hidden" name="controlleurs" value="admin"/>
-                    <input type="hidden" name="action" value="<?=!isset($user['id']) ? 'creer_question': 'edit_question';?>"/>
+                    <input type="hidden" name="action" value="<?=!isset($user['id']) ? 'creer_question':'edit_question';?>"/>
                     <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>">
                     
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1"><b>Question</b></label>
-                        <textarea class="form-control input"  id="exampleFormControlTextarea1" rows="3" value="<?=$_SESSION['question'] ? $_SESSION['question']:""?>"></textarea>
+                        <textarea class="form-control input"  id="" rows="3" name="question" <?= isset($quest)? $quest:''?> <?=(isset($user['question']) ? $user['question']:'') ;?> ></textarea>
                         <small id="questionlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['question'])? $arrayErreur['question']:'';?></small>
                     </div>
                     <div class="form-group">
                         <label for="selection"><b>Nombre de point</b></label>
-                        <input type="text" name="nbr_pts"  class="form-control QU4" value="<?= $_SESSION['nbr_pts'] ? $_SESSION['nbr_pts']: ""?>">
+                        <input type="text" name="nbr_pts"  class="form-control QU4" value="<?= isset($nbrpoint)? $nbrpoint :''?> <?=(isset($user['nbr_pts']) ? $user['nbr_pts']:'') ;?>">
                         <small id="nbr_ptslHelp" class="form-text text-danger"><?php echo isset($arrayErreur['nbr_pts'])? $arrayErreur['nbr_pts']:'';?></small>
                            
                     </div>
@@ -122,11 +126,11 @@ if (isset($_SESSION['arrayErreur'])){
                         
                     <div class="form-group">
                         <label for="selection" ><b>Type de reponse</b></label>
-                        <select id="selection" name="choice" class="form-control QU2">
+                        <select id="selection" name="choice" class="form-control QU2" value="">
                             <option value=""> Choisir...</option>
-                            <option value="1" >Choix simple</option>
-                            <option value="2" >choix double</option>
-                            <option value="3" >Choix multiple</option>
+                            <option value="1" <?=isset($type)? $type:(isset($question['type']) && $question['type']=='1')? 'selected' :'';?>>Choix simple</option>
+                            <option value="2" <?=isset($type)? $type:(isset($question['type']) && $question['type']=='2')? 'selected' :'';?>>choix double</option>
+                            <option value="3" <?=isset($type)? $type:(isset($question['type']) && $question['type']=='3')? 'selected' :'';?>>Choix multiple</option>
                             <small id="choicelHelp" class="form-text text-danger"><?php echo isset($arrayErreur['choice'])? $arrayErreur['choice']:'';?></small>
                             
                         </select>
@@ -135,33 +139,33 @@ if (isset($_SESSION['arrayErreur'])){
                     
                     <div class="form-group">
                        <p class="QU"><b>Nombre de réponses</b></p>
-                           <input type="text" name="nbr_reponse"  class="form-control QU4" value="<?= $_SESSION['nbr_reponse'] ? $_SESSION['nbr_reponse']: ""?>">
+                           <input type="text" name="nbr_reponse"  class="form-control QU4" value="<?= isset($nombrereponse)? $nombrereponse:''?> <?=(isset($user['nbr_reponse']) ? $user['nbr_reponse']:"" );?>">
                            <small id="numberlHelp" class="form-text text-danger"><?php echo isset($arrayErreur['nbr_reponse'])? $arrayErreur['nbr_reponse']:'';?></small>
                            <button type="submit" class="btn btn-dark ajout" name="ajout"><i class="bi bi-plus-square-fill"></i></button>
                        </div>
-                   
+                       <?php $_SESSION['nbr_reponse']; ?>
                     <?php for ($i=0; $i < $_SESSION['nbr_reponse'] ; $i++): ?>
                        <div class="row ml-5">
                            <div class="col-md-10">
-                                <input type="text" name="nbr_reponse"  class="form-control QU4 ml-4 "> <br>
+                                <input type="text" name="reponse[]"  class="form-control QU4 ml-4 " value="<?= isset($question['reponse'][$i])? $question['reponse'][$i] :''?>"> <br>
                            </div>
-                         
-                                <?php if ( $_SESSION['choice']== '2'): ?>
-                                <input class="form-check-input ml-auto mr-auto"  type="radio" name="double"id="exampleRadios1" value="option1">
-                                <?php elseif ($_SESSION['choice']== '3'): ?>
-                                <label><input class="" type="checkbox" name="multiple" value=""></label>
+                                <label for="">Reponse<?=$i?></label>
+                                <?php if ($type=='radio' || $_SESSION['choice']== '2'): ?>
+                                    <input class="form-check-input ml-auto"  type="radio" name="double"id="exampleRadios1" value="<?= isset($question['radio'])? $question['radio'] :'reponse'.$i;?>  <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$i? 'checked': '';?>">
+                                <?php elseif ($type=='checkbox' || $_SESSION['choice']== '3'): ?>
+                                <label><input class="" type="checkbox" name="multiple" value="<?= isset($question['checkbox'])? $question['checkbox'] :'reponse'.$i;?> <?php echo isset($question['bonnereponse'.$i]) ? 'checked': '';?>"></label>
+                                <?php endif ?>
+                                
                           </div>
-                        <?php endif ?>
-
-                        <?php endfor ?>
+                            <?php endfor ?>
 
                     
-                    <div class=" aligne">
-                        <a  type="submit" style="color: white;"  class="btn  btn-secondary " href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Annuler</a>
-                        <button type="submit" style="color: white;" name="btn-submit" class="btn btn-enregistrer annuler">Enregistrer</button>
+                            <div class=" aligne">
+                                <a  type="submit" style="color: white;"  class="btn  btn-secondary " href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">Annuler</a>
+                                <button type="submit" style="color: white;" name="btn-submit" class="btn btn-enregistrer annuler">Enregistrer</button>
                  
 
-                    </div>
+                            </div>
                 </form>
                     
             </div>
