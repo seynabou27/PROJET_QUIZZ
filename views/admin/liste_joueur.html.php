@@ -9,6 +9,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="<?=WEB_ROUTE.'css/liste_question.css'?>">
   </head>
   <body>
       
@@ -156,12 +157,12 @@
 
     <div class="pagination">
     <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
-                <a name="" id="" class="btn btn-light disabled mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
+                <a name="" id="" class="btn btn-light disabled mb-3 mt-2"  href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
                 <?php else: ?>
                     <a name="" id="" class="btn btn-light  mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$precedent;  ?>" role="button">Precedent</a> 
                  <?php endif ?>
                  <?php if($_GET['page'] > $nombre_page-1): ?>
-                <a name="" id=""  class="btn btn-danger suiv text-white mb-3 disabled  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
+                <a name="" id=""  class="btn  text-white btn-danger mb-3 disabled   mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
                 <?php else: ?>
                     <a name="" id=""  class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_joueur&page='.$suivant; ?>" role="button">Suivant</a>
                  <?php endif ?>
@@ -177,90 +178,22 @@
 
                     <style>
                                     
-                        nav{
-                            background-color: black;
-                        
+                        .pagination{
+                        float: inline-end;
+                         margin-right: 10%;
                         }
-                        .navbar-toggler-icon{
-                            background-color: white;
-                            border-radius: 3px;
-                        }
-                        button:after{
-                            color: white;
-
-                        
-
-                        }
-                        .justify-content-center{
-                            margin-left: 25%;
-                        }
-                        .btn:hover{
-                            color: white;
-                        }
-                        link{
-                            color: white;
-                        }
-                
-                        a:hover{
-                            color: white;
-                            
-                            border-bottom: 5px solid white;
-                        
-                        }
-                        ul li a {
-                            text-decoration:none;
-                            color: #7a7a7a;
-                        
-                        }
-                    
-                        ul{
-                            margin-left: 28%;
-                            color: white;
-                        
-                        }
-                        .btn{
-                            color: #767676;
-                        }
-            
-                    
-                    
-                        img{
-                            width: 45px;
-                        }
-                        h3{
-                            font-size: 16px;
-                            margin-top: 2.5%;
-                            color: white;
-
-                        }
-                        h2{
-                            font-size: 20px;
-                            margin: 6%;
-                        }
-                        .image{
-                            margin-left: 14%;
-                        }
-                        .btn-n{
-                            float: right;
-                            margin: 2%;
-                            background-color:#FE1B00;
-                            color: white;
+                        .btn-danger:hover {
+                            background-color: #FE1B00;
+                            border-color: #FE1B00;
                         }
                         .suiv{
                             background-color: #FE1B00;
-
                         }
-                        .btn-danger:hover{
+                        .disabled{
                             background-color: #FE1B00;
-                            border-color:#FE1B00;
-                        }
-                        .pagination{
-                            float: right;
-                            margin-right: 10%;
                         }
                         
-       
-                    
+  
                     </style>
 
 

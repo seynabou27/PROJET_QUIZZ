@@ -1,1 +1,165 @@
-[{"controlleurs":"admin","action":"creer_question","id":"60e4374d58d36","question":"1.Les langages web","nbr_pts":"12","choice":"3","nbr_reponse":"2","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60e4374d58d36","question":"2.Le corona vient d'ou?","nbr_pts":"123","choice":"2","nbr_reponse":"1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60e4374d58d36","question":" 3.Quel terme d\u00e9finit le langage qui s'adapte sur Android et sur Ios?","nbr_pts":"145","choice":"2","nbr_reponse":"222","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60e4374d58d36","question":"4.Quel est le premier ecole de codage au s\u00e9n\u00e9gal?","nbr_pts":"12","choice":"2","nbr_reponse":"1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60e4374d58d36","question":"5.Les precurseurs de la revolution digitale","nbr_pts":"12","choice":"2","nbr_reponse":"1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60eb62555ecce","question":"jjjjjjhhhhhhhhhhhhhhhhhhhhhhhh","nbr_pts":"23","choice":"1","nbr_reponse":" 1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60eb64f2d4e13","question":"tedxthyugcddwcvikj dfwrhjok?","nbr_pts":" 345","choice":"2","nbr_reponse":"1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60eb657648bf8","question":"kljhkjtydiyirmugjhvcccccc","nbr_pts":"444 ","choice":"1","nbr_reponse":" 1","btn-submit":""},{"controlleurs":"admin","action":"creer_question","id":"60eb676f35008","question":"jfirkkkkkkkkkkkkkkkkkkkkkkkk","nbr_pts":" 456","choice":"2","nbr_reponse":"1","btn-submit":""}]
+[
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": "1.Les langages web",
+        "nbr_pts": "12",
+        "choice": "3",
+        "nbr_reponse": "4",
+        "reponse": [
+            "HTML",
+            "FJKG",
+            "JAVA"
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": "2.Le corona vient d'ou?",
+        "nbr_pts": "123",
+        "choice": "2",
+        "nbr_reponse": "2",
+        "reponse": [
+            "KIRIKORO",
+            "CHINE"
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": " 3.Quel terme d\u00e9finit le langage qui s'adapte sur Android et sur Ios?",
+        "nbr_pts": "145",
+        "choice": "1",
+        "nbr_reponse": "1",
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": "4.Quel est le premier ecole de codage au s\u00e9n\u00e9gal?",
+        "nbr_pts": "12",
+        "choice": "2",
+        "nbr_reponse": "2",
+        "reponse": [
+            "kjhjj",
+            "ljhfiik"
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60e4374d58d36",
+        "question": "5.Les precurseurs de la revolution digitale",
+        "nbr_pts": "12",
+        "choice": "2",
+        "nbr_reponse": "2",
+        "reponse": [
+            "GAFAM",
+            "CIA-FAM"
+            
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60eb62555ecce",
+        "question": "jjjjjjhhhhhhhhhhhhhhhhhhhhhhhh",
+        "nbr_pts": "23",
+        "choice": "1",
+        "nbr_reponse": " 1",
+        "reponse": [
+            "kjhjj"
+            
+        ],
+        "btn-submit": ""
+    
+
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60eb64f2d4e13",
+        "question": "tedxthyugcddwcvikj dfwrhjok?",
+        "nbr_pts": " 345",
+        "choice": "2",
+        "nbr_reponse": "1",
+        "reponse": [
+            "jhjj",
+            "vhxhkj"
+            
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60eb657648bf8",
+        "question": "kljhkjtydiyirmugjhvcccccc",
+        "nbr_pts": "444 ",
+        "choice": "1",
+        "nbr_reponse": " 1",
+        "reponse": [
+            "kjhjj",
+            "kjhjj"
+            
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60eb676f35008",
+        "question": "jfirkkkkkkkkkkkkkkkkkkkkkkkk",
+        "nbr_pts": " 456",
+        "choice": "2",
+        "nbr_reponse": "1",
+        "reponse": [
+            "kjhjj",
+            "hfjskdj"
+            
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60ec221d26462",
+        "question": "kjiutttttttttttttttttttttttttttt",
+        "nbr_pts": " 23",
+        "choice": "3",
+        "nbr_reponse": " 1",
+        "reponse": [
+            "kjhjj",
+            "kjhjj",
+            "kjhjj"
+
+
+
+            
+        ],
+        "btn-submit": ""
+    },
+    {
+        "controlleurs": "admin",
+        "action": "creer_question",
+        "id": "60ec31c9de665",
+        "question": "lhekdhj\u00e9jdhjhakjhdddddddd",
+        "nbr_pts": " 23",
+        "choice": "3",
+        "nbr_reponse": " 3 ",
+        "reponse": [
+            "kjhjj",
+            "gjhjkh",
+            "iuhijkj"
+        ],
+        "btn-submit": ""
+    }
+]

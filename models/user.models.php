@@ -85,7 +85,7 @@ function modif_user(array $user_new){
 function ajout_fichier(array $array){
     //convertir le tableau en json
     $json = json_encode($array);
-    file_get_contents(FILE_USERS, $json);
+    file_put_contents(FILE_QUESTION, $json);
 }
 function find_user_by_id(string $id): array {
     $arrayuser = find_all_users();

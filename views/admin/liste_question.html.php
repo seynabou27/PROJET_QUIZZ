@@ -105,7 +105,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($arrayuser as $question): ?>
+                <?php foreach($arrayuser  as $key=> $question): ?>
                        
                  
                         
@@ -116,21 +116,20 @@
                             <?=$question['question'] ?> 
                            
                             <?php if ($question['choice']=='2'): ?> <?php echo "</br>" ?>
-                            <?php //foreach($question['reponse'] as $key => $reponse) :?>
-                            <input type="radio" name="double"   <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$key? 'checked': '';?>>  <?= $reponse ?>CHOIX1<br>
-                            <input type="radio" name="double"   <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$key? 'checked': '';?>>  <?= $reponse ?>CHOIX2<br>
+                            <?php foreach($question['reponse'] as $key => $reponse) :?>
+                            <input type="radio" name="double"   <?php echo isset($question['bonnereponse']) && $question['bonnereponse']=='reponse'.$key? 'checked': '';?>>  <?= $reponse ?><br>
+                         
                     
-                            <?php //endforeach ?>
+                            <?php endforeach ?>
               
                             <?php endif ?>
 
                             <?php if ($question['choice']=='3'): ?> <?php echo "</br>" ?>
                 
-                            <?php  //foreach($question['reponse'] as $key=> $reponse) :?>
-                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>HTML<br>
-                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>S<br>
-                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?>JAVA<br>
-                            <?php //endforeach ?>
+                            <?php  foreach($question['reponse'] as $key=> $reponse) :?>
+                            <input type="checkbox" name="multiple"  <?php echo isset($question['bonnereponse'.$key]) ? 'checked': '';?>>  <?= $reponse ?><br>
+                            
+                            <?php endforeach ?>
                             <?php endif ?>
 
                             <?php if ($question['choice']=='1'): ?>
@@ -142,7 +141,7 @@
                             <a name="" id="" class="btn btn-light modifier" href="<?= WEB_ROUTE.'?controlleurs=admin&views=edit_question&id='.$question['id']?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
                             <a name="" id="" class="btn btn-light supprimer" href="<?= WEB_ROUTE.'?controlleurs=admin&views=suppression&id='.$question['id']?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
                             </div>
-                        </td>
+                        </td>   
                     </tr>
                    
                     <?php endforeach?>

@@ -166,7 +166,8 @@
                     
                 </tbody>
             </table>
-            <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
+            <div class="pagination">
+                <?php if(empty($_GET['page']) || ($_GET['page']==1) ): ?>
                 <a name="" id="" class="btn btn-light disabled mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$precedent;  ?>" role="button">Precedent</a> 
                 <?php else: ?>
                     <a name="" id="" class="btn btn-light  mb-3 mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$precedent;  ?>" role="button">Precedent</a> 
@@ -176,6 +177,9 @@
                 <?php else: ?>
                     <a name="" id=""  class="btn btn-danger text-white suiv mb-3  mt-2" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_admin&page='.$suivant; ?>" role="button">Suivant</a>
                  <?php endif ?>
+                
+            </div>
+            
                     
         </div>
         
@@ -187,6 +191,9 @@
                         .btn-danger:hover{
                             background-color: #FE1B00;
                             border-color:#FE1B00;
+                        }
+                        .pagination{
+                            float: right;
                         }
                     
                     </style>

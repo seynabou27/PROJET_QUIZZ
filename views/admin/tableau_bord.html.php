@@ -67,7 +67,7 @@
                 <?php if (est_connect()) : ?>
     
                     <div class="dropdown">
-                        <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn sambata" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sambata Ndiaye
                         </a>
 
@@ -87,10 +87,7 @@
                 
             // 2 convertir contenu en tableau
             $arrayuser = json_decode($json, true);
-            $json = file_get_contents(ROUTE_DIR.'data/user.question.json');
-                
-            // 2 convertir contenu en tableau
-            $arrayquestion = json_decode($json, true);
+            
 
             $compteurj=$compteuri=$compteura=0;
             foreach ($arrayuser as $user){

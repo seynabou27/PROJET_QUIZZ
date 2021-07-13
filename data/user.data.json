@@ -3,7 +3,7 @@
         "controlleurs": "security",
         "action": "edit",
         "id": "ba2oprie3",
-        "Prenom": "Coudy_ly",
+        "Prenom": "Coudy123",
         "nom": "Wane",
         "login": "admin@gmail.com",
         "password": "seynabou",
@@ -301,6 +301,16 @@
         "Prenom": "fatou",
         "nom": "fall",
         "login": "fatoufall@gmail.com",
+        "password": "seynabou",
+        "btn_submit": "",
+        "role": "ROLE_ADMIN"
+    },
+    {
+        "controlleurs": "security",
+        "id": "60ec21e46dc81",
+        "Prenom": "seynabou",
+        "nom": "ka",
+        "login": "seynabouka09@gmail.com",
         "password": "seynabou",
         "btn_submit": "",
         "role": "ROLE_ADMIN"

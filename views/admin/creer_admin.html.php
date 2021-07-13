@@ -111,7 +111,7 @@
                      <input type="hidden" name="action" value="<?=isset($user['id']) ? 'edit':'inscription';?>"/>
                      <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>">
                                 
-                     <h1 class="texte">Créer Administrateur</h1>
+                     <h1 class="texte" style="text-align:center; margin: top -2%;">Créer Administrateur</h1>
  
                <div class="row mb-3">
                      <div class="col">
