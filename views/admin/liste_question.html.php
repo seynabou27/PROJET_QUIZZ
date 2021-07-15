@@ -16,7 +16,8 @@
   </head>
   <body>
 
-        <nav class="navbar navbar-expand-sm navbar-light ">
+       
+       <nav class="navbar navbar-expand-sm navbar-light ">
             
             <?php
                 $remoteImage = ROUTE_DIR."public/img/logo.png";
@@ -55,9 +56,7 @@
 
         
                 </ul>
-
            
-
                 <?php if (est_joueur()) : ?>
                     <li class="nav-item active">
                         <a class="nav-link" href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>">jeu</a>
@@ -68,7 +67,7 @@
                 <?php if (est_connect()) : ?>
     
                     <div class="dropdown">
-                        <a class="btn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="btn sn" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Sambata Ndiaye
                         </a>
 
@@ -82,6 +81,8 @@
     
             </div>
         </nav>
+           
+       
         <div class="boutton">
         <a class="btn btn-registre" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button"><i class="bi bi-plus-lg"></i>Créer question</a>
         </div>
@@ -138,11 +139,18 @@
                         </td>   
                         <td> 
                             <div class="modification">
-                            <a name="" id="" class="btn btn-light modifier" href="<?= WEB_ROUTE.'?controlleurs=admin&views=edit_question&id='.$question['id']?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?= WEB_ROUTE.'?controlleurs=admin&views=suppression&id='.$question['id']?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
+                            <a name="" id="" class="btn btn-light" href="<?= WEB_ROUTE.'?controlleurs=admin&views=edit_question&id='.$question['id']?>" role="button"><i class="bi bi-pencil-square"></i></a>
+                            <a name="" id=""  class="btn btn-light supprimer" href="<?= WEB_ROUTE.'?controlleurs=admin&views=supprimer&id='.$question['id']?>" role="button"><i class="bi bi-trash-fill"></i></a>
                             </div>
                         </td>   
                     </tr>
+                    <style>
+                    .supprimer{
+                        margin: 4%;
+                        height: 15%;
+                    }
+                    
+                    </style>
                    
                     <?php endforeach?>
 
@@ -156,119 +164,10 @@
     
 
 
-
-            <!--<div class="row">
-                <div class="col-md-6 left">
-                    <div class="question1">
-                    
-                    
-                        
-                        <p><b> 1. Les langages web. </b></p>
-                        <div class="checkbox">
-                            <label for="1"><input type="checkbox" name="question1" value="correct1">HTML</label> 
-                            
-                        </div>
-                        <div class="checkbox">
-                            <label for="2"><input type="checkbox" name="question1" value="pascorrect">S</label>
-                           
-                        </div>
-                        <div class="checkbox">
-                            <label for="3"><input type="checkbox" name="question1" value="correct2">JAVA</label>
-                        </div>
-                        <div class="modification">
-                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=confirmation'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>
-                        
-                        
-                       
-                    </div>
-                    
-                    <div class="question3">
-                        <p><b> 3. Quel terme définit le langage qui<br/> s'adapte sur Android et sur Ios?</b></p>
-                        <input type="text" class="input" value="">  
-
-                        <div class="modification1">
-                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>
-                       
-                    </div>
-                    
-                    <div class="question5">
-                        <p><b> 5. Les précurseurs de la révolution digitale.</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question5" id="exampleRadios1" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                                GAFAM 
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question5" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                CIA-FBI
-                            </label>
-                        </div>
-                        <div class="modification2">
-                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="col-md-6 right">
-                    <div class="question2">
-                        <p><b> 2. Le corona vient d'ou?</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question2" id="exampleRadios1" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                                Chine
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question2" id="exampleRadios2" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                                    Kirikoro
-                            </label>
-                        </div>
-                        <div class="modification3">
-                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>
-                    </div>  
-                    <div class="question4">
-                        <p><b> 4. Quel est le premier ecole de codage au sénégal?</b></p>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question4" id="example4" value="option1">
-                            <label class="form-check-label" for="exampleRadios1">
-                            Orange Digitale Center
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="question4" id="example4" value="option2">
-                            <label class="form-check-label" for="exampleRadios2">
-                            senecartour
-                            </label>
-                        </div>
-                        <div class="modification4">
-                            <a name="" id="" class="btn btn-light modifier" href="<?=WEB_ROUTE.'?controlleurs=admin&views=creer_question'?>" role="button">Modifier<i class="bi bi-pencil-square"></i></a>
-                            <a name="" id="" class="btn btn-light supprimer" href="<?=WEB_ROUTE.'?controlleurs=admin&views=supression'?>" role="button">supprimer<i class="bi bi-trash-fill"></i></a>
-                        </div>
-                    </div>
-                
-                    
-                </div>
-            
-            </div>
-            
-            
-            
-        </div>
-
         
             
               
-         Optional JavaScript -->
+         <!--Optional JavaScript-->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

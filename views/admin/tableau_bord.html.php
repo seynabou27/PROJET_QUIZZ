@@ -112,7 +112,7 @@
 
         ?>
 
-        <div class="container  justify-content-center">
+        <div class="container  justify-content-center tableau">
             <div class="card admin" style="color:red;"> 
             <b><?=$compteuri?></b> 
                 <b>Administateurs </b>  

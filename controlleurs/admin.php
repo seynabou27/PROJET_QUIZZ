@@ -23,38 +23,29 @@ if (!est_admin()) header("location:".WEB_ROUTE.'?controlleurs=security&views=con
                 require(ROUTE_DIR.'views/admin/confirmation.html.php');
             }elseif($_GET['views']=='edit_question') {
                 $_SESSION['id']=$_GET['id'];
-                  $id=$_SESSION['id'];
-                  $user = find_user_by_id($id);
-                   $_SESSION['nbr_reponse']=$user['nbr_reponse'];
-                   require_once(ROUTE_DIR.'views/admin/creer_question.html.php');
+                $id=$_SESSION['id'];
+                $user = find_user_by_id($id);
+                $_SESSION['nbr_reponse']=$user['nbr_reponse'];
+                require_once(ROUTE_DIR.'views/admin/creer_question.html.php');
                 
-                }elseif ($_GET['views']=='suppression') {
-                    $id = $_GET['id'];
-                    /* $id = $_SESSION['id']; */
-                   /*  $question = supprimer($id); */
-                   /*  $trouve = supprimer($id); */
-                    /* header('location:'.WEB_ROUTE.'?controlleurs=admin&views=confirmation.html.php'); */
-                    require_once(ROUTE_DIR.'views/admin/confirmation.html.php');
-                    //exit();
-         }elseif ($_GET['views']=='confirmation') {
-             
-            if (isset($_GET['id'])) {
-              $id=$_GET['id'];
-              $question=supprimer($id);
-               require_once(ROUTE_DIR.'views/admin/liste_question.html.php');
+            }elseif($_GET['views'] == 'supprimer'){
+                $_SESSION['id']=$_GET['id'];
+                $id = $_SESSION['id'];
+                $question = find_question_id($id);
+                require(ROUTE_DIR.'views/admin/confirmation.html.php');
+            }elseif($_GET['views'] == 'confirme'){
+                $_SESSION['id']=$_GET['id'];
+                $id = $_SESSION['id'];
+                $question = find_question_id($id);
+                $ok = supprimer_ques($id);
+                header('location:'.WEB_ROUTE.'?controlleurs=admin&views=liste_question');
             }
-              //exit();
-          }
-        }else {
+        }else{
             require_once(ROUTE_DIR.'views/security/connexion.html.php');
         }
-    }elseif ($_SERVER['REQUEST_METHOD'] == 'POST'){
-        
-       
+    }elseif($_SERVER['REQUEST_METHOD'] == 'POST'){
         if (isset($_POST['action'])) {
-            if ($_POST['action']== 'creer_question') {
-                
-                
+            if ($_POST['action']== 'creer_question') {          
                 if (isset($_POST['btn-submit'])) {
                     
                     //die('test');

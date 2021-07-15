@@ -14,7 +14,16 @@ function find_login_password(string $login, string $password){
     }
     return[];
 }
-
+function find_question_id( $id):array{
+    $json =file_get_contents(FILE_QUESTION);
+    $arrayUser = json_decode($json , true);
+    foreach($arrayUser as $user ){
+      if ($user ['id'] == $id){
+        return $user;
+      }
+    }
+    return[];
+  }
 function add_user(array $user){
     // 1 lire contenu du fichier
     $json = file_get_contents(FILE_USERS);
@@ -96,24 +105,24 @@ function find_user_by_id(string $id): array {
     }
     return [];
 }
-function supprimer(string  $id):bool{
-    $arrayuser = find_all_users();
-    $trouve= false;
-    $array=array();
-    foreach ($arrayuser as $user) {
-        if ($user['id'] ==$id) {
-             $trouve=true;
-        }else {
-            $array[]= $user;
-        }
-    
-    }
-    
-    if ($trouve) {
-        ajout_fichier($array);
-        
-    }
-    return $trouve;
+function supprimer_ques(string  $id):bool{
+    $json =file_get_contents(FILE_QUESTION);
+    // 2 convertir le json en tableau
+    $arrayQuestion = json_decode($json,true); 
+    $tab = [];
+    $ok = false;
+      foreach( $arrayQuestion as $question){
+          if ($question['id'] == $id) {
+            $ok = true;
+          }else{
+            $tab [] = $question;
+          }
+      }
+      if($ok){
+        $json = json_encode($tab);
+        file_put_contents(FILE_QUESTION, $json);
+      }
+      return $ok;
 }
 function modif_question(array $user_bien){
     $json = file_get_contents(FILE_QUESTION);

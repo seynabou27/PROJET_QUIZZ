@@ -32,7 +32,7 @@
                 <p class="card-text">Supression</p>
               </div>
               <a href="<?=WEB_ROUTE.'?controlleurs=admin&views=liste_question'?>" class="btn btn-warning active" role="button">NON</a>
-              <a href="<?=WEB_ROUTE.'?controlleurs=admin&views=confirmation&id='?>" class="btn btn-danger active" role="button">OUI</a>
+              <a href="<?=WEB_ROUTE.'?controlleurs=admin&views=confirme&id='.$question['id']?>" class="btn btn-danger active" role="button">OUI</a>
             </div>
             <?php  
             $json = file_get_contents(FILE_QUESTION);
